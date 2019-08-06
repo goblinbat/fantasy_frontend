@@ -16,26 +16,26 @@ export class AuthService {
 
 	login(username:string, password:string) {
 		const data = {
-		user: {
-			username: username,
-			password: password
+			user: {
+				username: username,
+				password: password
+			}
 		}
-		}
-		return this.httpClient.post<{access_token: string}>(`${baseUrl}/auth/login`, data).pipe(tap(res => {
-		localStorage.setItem('access_token', res.access_token);
-		}))
+		return this.httpClient.post<{sessionToken: string}>(`${baseUrl}/auth/login`, data).subscribe(res => {
+			localStorage.setItem('access_token', res.sessionToken);
+		})
 	}	
 
 	register(username:string, password:string) {
 		const data = {
 			user: {
-			username: username,
-			password: password
+				username: username,
+				password: password
 			}
 		}
-		return this.httpClient.post<{access_token: string}>(`${baseUrl}/auth/signup`, data).pipe(tap(res => {
-		this.login(username, password)
-		}))
+		return this.httpClient.post(`${baseUrl}/auth/signup`, data).subscribe(res => {
+			this.login(username, password)
+		})
 	}
 
 	logout() {
