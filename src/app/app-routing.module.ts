@@ -6,7 +6,7 @@ import { ExploreComponent} from './components/explore/explore.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthComponent},
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'explore', component: ExploreComponent }
 ];
 
