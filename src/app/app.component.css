@@ -2,3 +2,33 @@
     width:100%;
     height: 700px;
 }
+
+#loginButton{
+    justify-self: end;
+}
+  
+#topNav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.example-container {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+  
+.example-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    min-width: 130px;
+}
+    
+#buttonGroup2{
+    position: absolute;
+    bottom: 0;
+}
