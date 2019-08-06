@@ -6,18 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth-service.service';
 import { ExploreComponent } from './components/explore/explore.component';
+import { SideBarComponent } from './components/navs/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    ExploreComponent
+    ExploreComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { ExploreComponent } from './components/explore/explore.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
   ],
   exports: [
     BrowserAnimationsModule,
