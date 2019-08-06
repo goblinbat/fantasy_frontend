@@ -1,15 +1,19 @@
 <div id="topNav">
     
-<div id="homeButton">
-<button mat-button >Fantasy Writer's Forum</button>
-</div>
+    <div id="homeButton">
+        <button mat-button >Fantasy Writer's Forum</button>
+    </div>
 
 
-<button mat-button>*logo here</button>
+    <button mat-button>*logo here</button>
 
 
-<div id="loginButton">
-<button routerLink ="/auth" mat-button>Login/Signup</button>
-</div>
+    <div id="loginButton" *ngIf="isLoggedIn !== true; else logout">
+        <button routerLink ="/auth" mat-button>Login/Signup</button>
+    </div>
+
+    <ng-template #logout>
+        <button mat-button (click)="logMeOut()">Logout</button>
+    </ng-template>
 
 </div>

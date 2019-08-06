@@ -16,6 +16,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { SideBarComponent } from './components/navs/side-bar/side-bar.component';
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -25,7 +26,8 @@ const baseUrl = 'http://localhost:3000'
     AuthComponent,
     ExploreComponent,
     SideBarComponent,
-    TopBarComponent
+    TopBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

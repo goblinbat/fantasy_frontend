@@ -23,6 +23,7 @@ export class AuthService {
 		}
 		return this.httpClient.post<{sessionToken: string}>(`${baseUrl}/auth/login`, data).subscribe(res => {
 			localStorage.setItem('access_token', res.sessionToken);
+			window.location.reload();
 		})
 	}	
 
@@ -39,6 +40,7 @@ export class AuthService {
 	}
 
 	logout() {
-		localStorage.removeItem('access_token');
+		localStorage.clear();
+		window.location.reload();
   	}
 }
