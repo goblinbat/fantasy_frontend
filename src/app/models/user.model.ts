@@ -4,6 +4,6 @@ export class User {
     public password: string;
     public profile: string;
     public profilePic: any;
-    public friends: number[];
+    public friends: User[];
     public liked: number[];
 }

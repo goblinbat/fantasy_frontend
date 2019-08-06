@@ -1,0 +1,21 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+                 [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
+      <button mat-button>+ Campaign</button>
+      <button mat-button>+ Short Story</button>
+      <button mat-button>+ Creature</button>
+      <button mat-button>Saved Posts</button>
+      <button mat-button>Profile</button>
+
+      <div id="buttonGroup2">
+            <button mat-button>Settings   <img src="../../../../assets/settings.png" width="15px" height="15px"></button>
+            <button mat-button>Logout</button>
+
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content [formGroup]="options">
+      <button mat-button (click)="sidenav.toggle()"><img src="../../../../assets/menu.png" width="20px" height="5%"></button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
