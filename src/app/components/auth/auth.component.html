@@ -8,23 +8,25 @@
     <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password" />
   </mat-form-field>
   <br>
-  <button (click)="onSubmit()" type="submit">Submit</button>
-  <button (click)="login = false">Don't have an account?</button>
+  <button mat-stroked-button (click)="onSubmit()" type="submit">Submit</button>
+  <button mat-button (click)="login = false">Don't have an account?</button>
 </div>
 
 <ng-template #signup>
-  <h1 class="title">Sign Up</h1>
-  <mat-form-field>
-    <input matInput placeholder="username" name="username" [(ngModel)]="newUser.username" />
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password" />
-  </mat-form-field>
-  <br>
-  <button (click)="onSubmit()" type="submit">Submit</button>
-  <button (click)="login = true">I have an account</button>
+  <div>  
+    <h1 class="title">Sign Up</h1>
+    <mat-form-field>
+      <input matInput placeholder="username" name="username" [(ngModel)]="newUser.username" />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password" />
+    </mat-form-field>
+    <br>
+    <button mat-stroked-button (click)="onSubmit()" type="submit">Submit</button>
+    <button mat-button (click)="login = true">I have an account</button>
+  </div>
 </ng-template>
 
 <br><br>
-<button mat-fab color="accent" routerLink='/explore'>Explore</button>
+<button mat-fab class="explore" color="accent" routerLink='/explore'>Explore</button>
