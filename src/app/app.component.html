@@ -14,7 +14,7 @@
 </div>
 
 <div class="container">
-    <mat-sidenav-container class="example-container">
+    <mat-sidenav-container class="example-container flex-item">
         <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
             [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
             <div id="buttonWrapper">
@@ -22,7 +22,7 @@
                 <button mat-button id="storyButton">+ Short Story</button>
                 <button mat-button id="creatureButton">+ Creature</button>
                 <button mat-button id="savedButton">Saved Posts</button>
-                <button mat-button id="profileButton">Profile</button>
+                <button mat-button id="profileButton" routerLink="/profile">Profile</button>
             </div>
             <div id="buttonGroup2">
                 <button mat-button>Settings   <img src="../assets/settings.png" width="15px" height="15px"></button>
@@ -33,7 +33,7 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 
-    <router-outlet class="content-window"></router-outlet>
+    <router-outlet class="content-window flex-item"></router-outlet>
 </div>
 
 <footer>
