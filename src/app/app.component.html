@@ -26,17 +26,15 @@
             </div>
             <div id="buttonGroup2">
                 <button mat-button>Settings   <img src="../assets/settings.png" width="15px" height="15px"></button>
-                <button mat-button>Logout</button>
             </div>
         </mat-sidenav>
         <mat-sidenav-content class="hamburger" [formGroup]="options">
             <button mat-button (click)="sidenav.toggle()"><img src="../assets/menu.png" width="20px" height="5%"></button>
         </mat-sidenav-content>
     </mat-sidenav-container>
-    <router-outlet></router-outlet>
+
+    <router-outlet class="content-window"></router-outlet>
 </div>
-
-
 
 <footer>
     <p>{{title}} &copy; Patrick Bassett, Brian Doan, and Molly Hopper</p>

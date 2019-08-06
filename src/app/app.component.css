@@ -32,3 +32,16 @@
     position: absolute;
     bottom: 0;
 }
+
+.content-window {
+    padding: .5em;
+}
+
+footer {
+    max-height: 10vh;
+    bottom: 0px;
+    margin: 0px;
+    padding: .5em;
+    text-align: center;
+    width: 99%;
+}
