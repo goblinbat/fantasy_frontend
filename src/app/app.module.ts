@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +15,15 @@ import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth-service.service';
 import { ExploreComponent } from './components/explore/explore.component';
 import { SideBarComponent } from './components/navs/side-bar/side-bar.component';
+import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     ExploreComponent,
-    SideBarComponent
+    SideBarComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { SideBarComponent } from './components/navs/side-bar/side-bar.component'
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
+    MatMenuModule,
   ],
   exports: [
     BrowserAnimationsModule,
