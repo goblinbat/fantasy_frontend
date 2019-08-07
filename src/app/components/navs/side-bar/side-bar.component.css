@@ -4,19 +4,32 @@
   bottom: 0;
   left: 0;
   right: 0;
+<<<<<<< Updated upstream
   /* width: 20em; */
   background-color: whitesmoke;
+=======
+  width: 20em;
+  background-color: transparent;
+>>>>>>> Stashed changes
 }
 
 .example-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< Updated upstream
   min-width: 130px;
   width: 12%; 
   /* margin-right: 5em; */
   /* padding-right: 1em; */
   /* background-color: whitesmoke; */
+=======
+  width: 60%; 
+  margin-right: 5em;
+  padding-right: 1em;
+  background-color: whitesmoke;
+  /* width: 15%; */
+>>>>>>> Stashed changes
 }
 
 #buttonGroup2{
@@ -25,6 +38,7 @@
 }
 
 .hamburger button{
+<<<<<<< Updated upstream
   position: absolute;
   background-color: white;
   height: 6.5%;
@@ -38,3 +52,8 @@ footer {
   margin-top: 82.6vh;
   text-align: center;
 }
+=======
+  background-color: whitesmoke;
+}
+
+>>>>>>> Stashed changes
