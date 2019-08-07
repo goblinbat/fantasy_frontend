@@ -1,6 +1,6 @@
 <div>
-  <div class="postContainer">
-    <h2>Post Title</h2>
-    <span>#hashtag, #tag</span>
+  <div class="postContainer" *ngFor="let post of posts">
+    <h2>{{post.title}}</h2>
+    <span>{{post.tag}}</span>
   </div>
 </div>
