@@ -1,6 +1,6 @@
 export class User {
     public id?: any;
-    public userName: string;
+    public username: string;
     public password: string;
     public profile: string;
     public profilePic: any;
