@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Post } from '../../models/post.model';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-explore',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./explore.component.css']
 })
 export class ExploreComponent implements OnInit {
+  posts: Post[];
   
-
-  constructor() { }
-
-  ngOnInit() {
+  getPosts(): void {
+    this.postService.getPosts().subscribe(posts => this.posts = posts)
   }
 
+  constructor(private postService: PostService) { }
+
+  ngOnInit() {
+    this.getPosts();
+  }
+ 
 }
