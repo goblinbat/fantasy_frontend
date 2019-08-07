@@ -1,8 +1,10 @@
 .postContainer {
-    margin-top: 12em;
-    margin-left: 20em;
-    margin-right: 2em;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 5%;
+    /* margin: auto; */
     padding-left: 2em;
     padding-bottom: 1em;
     border: 1px solid black;
+    width: 35em;
 }

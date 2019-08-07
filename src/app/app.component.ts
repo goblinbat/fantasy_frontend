@@ -12,21 +12,12 @@ export class AppComponent {
   title = 'fantasy-forum';
 
   isLoggedIn: boolean
-  options: FormGroup;
 
-  constructor(private auth : AuthService, private router: Router, private fb: FormBuilder) { 
-    this.options = fb.group({
-      fixed: false,
-      top: 0
-    });
-  }
+  constructor(private auth : AuthService, private router: Router, private fb: FormBuilder) {  }
 
   ngOnInit() {
     this.isLoggedIn = this.auth.loggedIn
-    console.log(this.isLoggedIn)
   }
-
-  shouldRun = true;
 
   logMeOut() {
     this.auth.logout();
