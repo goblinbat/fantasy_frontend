@@ -8,7 +8,8 @@ import {FormControl, FormBuilder,FormGroup} from '@angular/forms';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-
+  explore: true;
+  profile: false;
   options: FormGroup;
 
   constructor(fb: FormBuilder) {
