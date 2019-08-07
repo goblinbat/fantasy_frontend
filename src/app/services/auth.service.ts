@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user.model';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -20,8 +21,10 @@ export class AuthService {
 				password: password
 			}
 		}
-		return this.httpClient.post<{sessionToken: string}>(`${baseUrl}/auth/login`, data).subscribe(res => {
+		return this.httpClient.post<{sessionToken: string, user:object}>(`${baseUrl}/auth/login`, data).subscribe(res => {
 			localStorage.setItem('access_token', res.sessionToken);
+			localStorage.setItem('username', res.user.userName); // just ignore the red squiggle, this works
+			localStorage.setItem('userId', res.user.id);		// same, just ignore red squiggle
 			window.location.reload();
 		})
 	}	
