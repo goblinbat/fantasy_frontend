@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
 import {MatDialogModule} from '@angular/material';
 import {modal} from './components/navs/side-bar/modals/modal';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -29,10 +30,10 @@ const baseUrl = 'http://localhost:3000'
     ExploreComponent,
     SideBarComponent,
     TopBarComponent,
-    modal
-    
-    
-    
+    modal,
+    ProfileComponent,
+    UpdateUserComponent
+ 
 
   ],
   entryComponents:[

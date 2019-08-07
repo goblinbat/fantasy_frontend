@@ -11,9 +11,12 @@ import {modal} from './modals/modal';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-
+  explore: true;
+  profile: false;
   options: FormGroup;
   isLoggedIn: boolean;
+
+  modalID:string;
 
 
   constructor(fb: FormBuilder,private auth : AuthService, private router: Router,public dialog: MatDialog) {
@@ -29,10 +32,14 @@ export class SideBarComponent implements OnInit {
   }
 
   //modal for campaign, short stories, and creatures
-  openDialog(): void {
+  openDialog(input:string): void {
+    this.modalID = input;
     const dialogRef = this.dialog.open(modal, {
       width: '60%',
-      data: {}
+      data:{
+        id: this.modalID
+      }
+    
     });
 
     dialogRef.afterClosed().subscribe(result => {

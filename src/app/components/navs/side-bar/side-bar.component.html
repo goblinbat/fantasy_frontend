@@ -2,11 +2,10 @@
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
       [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
       <div id="buttonWrapper">
-      <button mat-button id="campaignButton" (click)="openDialog()">+ Campaign</button>
-      <button mat-button id="storyButton"  (click)="openDialog()">+ Short Story</button>
-      <button mat-button id="creatureButton"  (click)="openDialog()">+ Creature</button>
+      <button mat-button id="campaignButton" (click)="openDialog('campaign')">+ Campaign</button>
+      <button mat-button id="storyButton"  (click)="openDialog('story')">+ Short Story</button>
+      <button mat-button id="creatureButton"  (click)="openDialog('creature')">+ Creature</button>
       <button mat-button id="savedButton">Saved Posts</button>
-      <button mat-button id="profileButton">Profile</button>
     </div>
 
       <div id="buttonGroup2">
@@ -19,7 +18,17 @@
   
     <mat-sidenav-content class="hamburger" [formGroup]="options">
       <button mat-button (click)="sidenav.toggle()"><img src="../../../../assets/menu.png" width="20px" height="5%"></button>
-      <app-explore></app-explore>
+      
+      <button mat-button *ngIf="!explore" (click)="explore = true">Profile</button>
+      <button mat-button *ngIf="explore" (click)="explore = false">Explore</button>
+      <div *ngIf="explore; else profile">
+        <app-profile></app-profile>
+      </div>
+      <ng-template #profile>
+        <div>
+          <app-explore></app-explore>
+        </div>
+      </ng-template>
     </mat-sidenav-content>
 
   </mat-sidenav-container>

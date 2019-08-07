@@ -7,14 +7,18 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
     styleUrls: ['./modal.css'],
   })
   export class modal {
+      
   
     constructor(
       public dialogRef: MatDialogRef<modal>,
-      @Inject(MAT_DIALOG_DATA) public data: modal) {}
+      @Inject(MAT_DIALOG_DATA) public data: string) {
+      }
   
     onNoClick(): void {
+        
       this.dialogRef.close();
     }
   
   
+    
   }
