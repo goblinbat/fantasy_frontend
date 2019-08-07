@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+
+import { Post } from './post';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  baseUrl: 'http://localhost:3000/'
+  private baseUrl: 'http://localhost:3000/post'
 
   constructor(private http: HttpClient) { }
 
-  getPosts() {
-    
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.baseUrl)
+  }
+
+  getPost(id: number): Observable<Post[]> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<Post[]>(url)
   }
 }
