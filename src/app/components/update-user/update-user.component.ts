@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-user',
@@ -13,8 +14,12 @@ export class UpdateUserComponent implements OnInit {
   userId
   // currentUser
   bio: string
+  // update = {
+  //   username: '',
+  //   desc: ''
+  // }
   
-  constructor(private user: UserService, private router: Router) { }
+  constructor(private user: UserService, private router: Router, private auth: AuthService) { }
   
   ngOnInit() {
     this.userName = localStorage.getItem('username');
@@ -31,7 +36,7 @@ export class UpdateUserComponent implements OnInit {
       username: this.userName,
       profile: this.bio
     }}
-    console.log(data)
+    // console.log(data)
     localStorage.setItem('username', this.userName);
     this.user.editUser(this.userId, data).subscribe(res => {
       this.router.navigate(["/profile"])
@@ -40,7 +45,7 @@ export class UpdateUserComponent implements OnInit {
 
   delete() {
     this.user.deleteUser(this.userId).subscribe(res=>{
-      this.router.navigate(["profile"])
+      this.auth.logout()
     })
   }
 

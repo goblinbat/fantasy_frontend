@@ -1,9 +1,17 @@
-<h1>Edit Profile</h1>
-<h2>Username</h2>
-<input matInput value="{{userName}}" name="userName" ([ngModel])="userName">
-<h2>Profile</h2>
-<textarea maxlength=255 value="{{bio}}" name="bio" ([ngModel])="bio"></textarea>    
-
-
-<br><br>
-<button (click)="onSubmit()">Submit Changes</button>
+<form>
+    <h1>Edit Profile</h1>
+    <h2>Username</h2>
+    <mat-form-field>
+        <input matInput value="{{userName}}" name="userName" [(ngModel)]="userName">
+    </mat-form-field>
+    <h2>Profile</h2>
+    <mat-form-field>
+        <textarea matInput maxlength=255 value="{{bio}}" name="bio" [(ngModel)]="bio"></textarea>    
+    </mat-form-field>
+    
+    
+    <br><br>
+    <button type="submit" (click)="onSubmit()">Submit Changes</button>
+    <br>
+    <button (click)="delete()">Delete Account</button>
+</form>
