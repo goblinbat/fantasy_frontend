@@ -17,6 +17,8 @@ import { SideBarComponent } from './components/navs/side-bar/side-bar.component'
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
+import {MatDialogModule} from '@angular/material';
+import {modal} from './components/navs/side-bar/modals/modal';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -27,7 +29,15 @@ const baseUrl = 'http://localhost:3000'
     ExploreComponent,
     SideBarComponent,
     TopBarComponent,
-    ProfileComponent
+    modal
+    
+    
+    
+
+  ],
+  entryComponents:[
+    modal,
+
   ],
   imports: [
     BrowserModule,
@@ -49,12 +59,16 @@ const baseUrl = 'http://localhost:3000'
     }),
     MatSidenavModule,
     MatMenuModule,
+    MatDialogModule,
+    
+
   ],
   exports: [
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

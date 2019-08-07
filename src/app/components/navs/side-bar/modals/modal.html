@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<hr>
+<div mat-dialog-content id="container">
+  <p>Short Story creator form below with rich textfield</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="closed" cdkFocusInitial>Ok</button>
+</div>
