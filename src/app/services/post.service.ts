@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Post } from '../models/post.model';
 
@@ -33,4 +33,7 @@ export class PostService {
 
   // delete post
 
+  private setHeader(): HttpHeaders {
+    return new HttpHeaders().set('authorization', `${localStorage.getItem('access_token')}`);
+  }
 }
