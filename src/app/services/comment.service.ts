@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class CommentService {
 
+  baseUrl: 'http://localhost:3000/'
+
   constructor() { }
 
   // get all comments on post
