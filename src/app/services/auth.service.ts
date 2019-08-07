@@ -22,10 +22,10 @@ export class AuthService {
 				password: password
 			}
 		}
-		return this.httpClient.post<{sessionToken: string, user:object}>(`${baseUrl}/auth/login`, data).subscribe(res => {
+		return this.httpClient.post<{sessionToken: string, user:User}>(`${baseUrl}/auth/login`, data).subscribe(res => {
 			localStorage.setItem('access_token', res.sessionToken);
 			console.log(res.user)
-			localStorage.setItem('username', res.user.username); // just ignore the red squiggle, this works
+			localStorage.setItem('username', res.user.userName); // just ignore the red squiggle, this works
 			localStorage.setItem('userId', res.user.id);		// same, just ignore red squiggle
 			window.location.reload();
 		})
