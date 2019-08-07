@@ -49,11 +49,3 @@
     min-height: 35vh;
 }
 
-footer {
-    max-height: 10vh;
-    bottom: 0px;
-    margin-top: 50vh;
-    padding: .5em;
-    text-align: center;
-    width: 98%;
-}
