@@ -4,8 +4,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  width: 20em;
-  background-color: transparent;
+  /* width: 20em; */
+  background-color: whitesmoke;
 }
 
 .example-sidenav {
@@ -13,10 +13,10 @@
   align-items: center;
   justify-content: center;
   min-width: 130px;
-  width: 60%; 
-  margin-right: 5em;
-  padding-right: 1em;
-  background-color: whitesmoke;
+  width: 12%; 
+  /* margin-right: 5em; */
+  /* padding-right: 1em; */
+  /* background-color: whitesmoke; */
 }
 
 
@@ -27,6 +27,6 @@
 }
 
 .hamburger button{
-  background-color: whitesmoke;
+  background-color: white;
 }
 

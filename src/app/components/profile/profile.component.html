@@ -2,4 +2,7 @@
     <h1>{{userName}}</h1>
     <p *ngIf="bio else nobio">{{bio}}</p>
     <ng-template #nobio>No profile available</ng-template>
+
+    <br><br>
+    <button routerLink="/update">Edit</button>
 </div>
