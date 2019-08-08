@@ -1,6 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+:root {
+    --primary: #c13d2c;
+    --primary-light: #d64d3b;
+    --primary-lighter: #f06654;
+    --primary-dark: #a53021;
+    --primary-darker: #942618;
+    --secondary: #fc9d85;
+    --secondary-light: #ffad99;
+    --secondary-lighter: #fdc0b1;
+    --secondary-dark: #f29368;
+    --secondary-darker: #f7865a;
+    --tertiary: #ffce84;
+    --tertiary-light: #ffd597;
+    --tertiary-lighter: #fddfb3;
+    --tertiary-dark: #ffc857;
+    --tertiary-darker: #fcb54a;
+    --accent: #98b274;
+    --accent-light: #9bcf90;
+    --accent-lighter: #a9e09c;
+    --accent-dark: #79a577;
+    --accent-darker: #608a73;
+    --base: #fff4ed;
+}
+
 body {
     margin: 0px;
 }
+

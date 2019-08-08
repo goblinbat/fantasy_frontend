@@ -10,7 +10,6 @@ const baseUrl = 'http://localhost:3000'
   providedIn: 'root'
 })
 export class PostService {
-  
 
   constructor(private http: HttpClient) { }
 
