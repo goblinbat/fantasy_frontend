@@ -14,7 +14,7 @@ const routes: Routes = [
           import ('./components/explore/explore.module').then(m => m.ExploreModule)
       },
       { 
-        path: '**', redirectTo: 'explore',
+        path: '', redirectTo: 'explore', pathMatch: 'full',
       },
       {
         path: 'profile', loadChildren: () => 
