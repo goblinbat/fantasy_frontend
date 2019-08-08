@@ -18,7 +18,7 @@ export class ExploreComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.getPosts();
+    this.getPosts(); 
   }
  
 }
