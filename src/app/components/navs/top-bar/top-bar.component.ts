@@ -19,7 +19,7 @@ export class TopBarComponent implements OnInit {
 
   logMeOut() {
     this.auth.logout();
-    this.router.navigate(['explore'])
+    this.router.navigate(['splash/explore'])
   }
 
 }

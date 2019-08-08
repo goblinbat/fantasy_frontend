@@ -37,7 +37,7 @@ const baseUrl = 'http://localhost:3000'
     TopBarComponent,
     // ProfileComponent,
     UpdateUserComponent,
-    // TestPostComponent,
+    TestPostComponent,
   ],
   imports: [
     BrowserModule,
