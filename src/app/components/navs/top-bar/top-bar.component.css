@@ -1,6 +1,9 @@
 #loginButton{
-    
   justify-self: end;
+}
+
+#logout {
+  text-align: right !important;
 }
 
 #topNav{

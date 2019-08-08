@@ -25,6 +25,7 @@ import { SideBarComponent } from './components/navs/side-bar/side-bar.component'
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { TestPostComponent } from './components/test-post/test-post.component';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -34,7 +35,9 @@ const baseUrl = 'http://localhost:3000'
     AuthComponent,
     SideBarComponent,
     TopBarComponent,
+    // ProfileComponent,
     UpdateUserComponent,
+    // TestPostComponent,
   ],
   imports: [
     BrowserModule,
