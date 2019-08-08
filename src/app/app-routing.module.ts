@@ -20,7 +20,7 @@ const routes: Routes = [
     ] 
   },
   // { path: 'profile', component: ProfileComponent},
-  { path: 'update', component: UpdateUserComponent}
+  { path: 'update', component: UpdateUserComponent},
 ];
 
 @NgModule({
