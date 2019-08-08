@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
     } else {
       // console.log(this.newUser.username, this.newUser.password)
       this.auth.register(this.newUser.username, this.newUser.password)
-      this.router.navigate(['splash/explore'])
+      this.router.navigate(['splash/profile'])
     }
   }
 
