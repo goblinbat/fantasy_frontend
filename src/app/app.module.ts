@@ -9,13 +9,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
+import { AppRoutingModule } from './app-routing.module';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth.service';
 import { ExploreComponent } from './components/explore/explore.component';
 import { SideBarComponent } from './components/navs/side-bar/side-bar.component';
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
-import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
 import {MatDialogModule} from '@angular/material';
 import {modal} from './components/navs/side-bar/modals/modal';
@@ -46,6 +48,7 @@ const baseUrl = 'http://localhost:3000'
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatTabsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -69,7 +72,7 @@ const baseUrl = 'http://localhost:3000'
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-
+    MatTabsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
