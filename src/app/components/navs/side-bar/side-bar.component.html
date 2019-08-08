@@ -6,6 +6,7 @@
       <button mat-button id="storyButton"  (click)="openDialog('story')">+ Short Story</button>
       <button mat-button id="creatureButton"  (click)="openDialog('creature')">+ Creature</button>
       <button mat-button id="savedButton">Saved Posts</button>
+      <br />
     </div>
 
       <div id="buttonGroup2">
@@ -17,28 +18,12 @@
     
   
     <mat-sidenav-content class="hamburger" [formGroup]="options">
-      <button mat-button (click)="sidenav.toggle()"><img src="../../../../assets/menu.png" width="20px" height="50%"></button>
-      
-      <mat-tab-group>
-        <mat-tab label="Explore">
-          <app-explore></app-explore>
-        </mat-tab>
-        <mat-tab label="Profile">
-          <app-profile></app-profile>
-        </mat-tab>
-        <mat-tab label="Third"> Content 3 </mat-tab>
-      </mat-tab-group>
-      
-      <!-- <button mat-button *ngIf="!explore" (click)="explore = true">Profile</button>
-      <button mat-button *ngIf="explore" (click)="explore = false">Explore</button>
-      <div *ngIf="explore; else profile">
-        <app-profile></app-profile>
-      </div>
-      <ng-template #profile>
-        <div>
-          <app-explore></app-explore>
-        </div>
-      </ng-template> -->
+      <mat-toolbar>
+        <button type="button" aria-label="sidenav toggle" mat-icon-button (click)="sidenav.toggle()"><mat-icon>
+          <img src="../../../../assets/menu.png" width="20em" height="20em"> </mat-icon>
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
       
       <footer>
         <p>{{title}} &copy; Patrick Bassett, Brian Doan, and Molly Hopper</p>

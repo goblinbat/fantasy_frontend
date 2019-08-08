@@ -21,6 +21,6 @@ export class AppComponent {
 
   logMeOut() {
     this.auth.logout();
-    this.router.navigate(['auth'])
+    this.router.navigate(['splash'])
   }
 }

@@ -11,6 +11,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material'
+
+import { ExploreModule } from './components/explore/explore.module';
+import { ProfileModule } from './components/profile/profile.module';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
@@ -29,18 +34,14 @@ const baseUrl = 'http://localhost:3000'
   declarations: [
     AppComponent,
     AuthComponent,
-    ExploreComponent,
     SideBarComponent,
     TopBarComponent,
+    // ProfileComponent,
+    UpdateUserComponent,
     modal,
-    ProfileComponent,
-    UpdateUserComponent
- 
-
   ],
   entryComponents:[
-    modal,
-
+    modal
   ],
   imports: [
     BrowserModule,
@@ -49,9 +50,11 @@ const baseUrl = 'http://localhost:3000'
     MatInputModule,
     MatButtonModule,
     MatTabsModule,
+    MatIconModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatToolbarModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
@@ -71,6 +74,8 @@ const baseUrl = 'http://localhost:3000'
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
+    MatToolbarModule,
     MatButtonModule,
     MatTabsModule,
   ],

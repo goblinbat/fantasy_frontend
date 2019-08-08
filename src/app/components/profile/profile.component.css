@@ -1,3 +1,26 @@
 #profile {
-    padding-left: 20em;;
+    padding: 1em;
+    /* margin-right: 10em; */
+    text-align: center;
+}
+
+/* .profPostList {
+    text-align: center;
+} */
+
+.profilePost {
+    /* float: center; */
+    margin: auto;
+    /* margin-left: 25%; */
+    padding: 1em;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 35em;
+}
+
+.division {
+    width: 60%;
+    /* float: left; */
 }

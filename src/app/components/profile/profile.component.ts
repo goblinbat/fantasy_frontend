@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
+import { PostService } from 'src/app/services/post.service';
 // import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,10 +11,18 @@ import { User } from 'src/app/models/user.model';
 })
 export class ProfileComponent implements OnInit {
   userName: string
-  currentUser
+  currentUser: any
   bio: string
+  posts: any
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private postServe: PostService) { }
+
+  getPosts() {
+    this.postServe.getPosts().subscribe(posts => {
+      this.posts = posts;
+      console.log(posts)
+    })
+  }
 
   ngOnInit() {
     this.userName = localStorage.getItem('username');
@@ -22,7 +31,7 @@ export class ProfileComponent implements OnInit {
       // console.log(this.currentUser)
       this.bio = data.profile
     })
-    // fetch posts
+    this.getPosts()
   }
 
 }

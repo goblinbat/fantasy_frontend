@@ -1,12 +1,19 @@
 <div id="profile">
+    <!-- put profile pic here -->
     <h1>{{userName}}</h1>
     <p *ngIf="bio else nobio">{{bio}}</p>
     <ng-template #nobio>No profile available</ng-template>
 
-    <br><br>
+    <br>
     <button routerLink="/update">Edit</button>
 
-    <div>
-        <!-- posts go here; do an *ngFor -->
+    <br>
+    <hr class="division">
+    <br>
+
+    <div *ngFor="let post of posts" class="profPostList">
+        <div class="profilePost">
+            <h2>{{post.title}}</h2>
+        </div>
     </div>
 </div>

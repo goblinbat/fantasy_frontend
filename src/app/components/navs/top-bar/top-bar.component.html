@@ -1,7 +1,7 @@
 <div id="topNav">
     
 <div id="homeButton">
-<button routerLink ="/explore" mat-button >Fantasy Writer's Forum</button>
+<button routerLink ="/splash/explore" mat-button >Fantasy Writer's Forum</button>
 </div>
 
 
@@ -12,7 +12,7 @@
         <button routerLink ="/auth" mat-button>Login/Signup</button>
     </div>
 
-    <ng-template #logout>
+    <ng-template #logout id="logout">
         <button mat-button (click)="logMeOut()">Logout</button>
     </ng-template>
 
