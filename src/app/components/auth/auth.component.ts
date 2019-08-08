@@ -25,11 +25,11 @@ export class AuthComponent implements OnInit {
     if (this.login) {
       // console.log(this.newUser.username, this.newUser.password)
       this.auth.login(this.newUser.username, this.newUser.password)
-      this.router.navigate(['explore'])
+      this.router.navigate(['splash'])
     } else {
       // console.log(this.newUser.username, this.newUser.password)
       this.auth.register(this.newUser.username, this.newUser.password)
-      this.router.navigate(['explore'])
+      this.router.navigate(['splash'])
     }
   }
 
