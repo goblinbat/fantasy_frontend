@@ -9,16 +9,23 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./explore.component.css']
 })
 export class ExploreComponent implements OnInit {
-  posts: Post[];
+  posts: any;
   
-  getPosts(): void {
-    this.postService.getPosts().subscribe(posts => this.posts = posts)
-  }
-
   constructor(private postService: PostService) { }
-
+  
+  getAllPosts() {
+    this.postService.getAllPosts().subscribe(posts => {
+      this.posts = posts;
+      console.log(posts)
+    })
+  }
+  
   ngOnInit() {
+<<<<<<< HEAD
     this.getPosts(); 
+=======
+    this.getAllPosts();
+>>>>>>> 5775a96a28732bccc9cd177f0475d9b63e450d89
   }
  
 }
