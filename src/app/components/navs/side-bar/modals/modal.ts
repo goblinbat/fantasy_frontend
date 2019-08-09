@@ -7,6 +7,14 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
     styleUrls: ['./modal.css'],
   })
   export class modal {
+
+    type:string ;
+    text:string;
+    title:string;
+    likes:number;
+
+    panelOpenState = false;
+
       
   
     constructor(
@@ -15,8 +23,13 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
       }
   
     onNoClick(): void {
-        
       this.dialogRef.close();
+    }
+
+    submit(): void{
+      console.log(this.type,this.text,this.title);
+
+
     }
   
   

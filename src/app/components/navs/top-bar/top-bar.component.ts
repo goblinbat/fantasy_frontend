@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TopBarComponent implements OnInit {
  
+  
 
   constructor() { }
 

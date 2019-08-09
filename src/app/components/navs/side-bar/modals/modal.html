@@ -1,13 +1,38 @@
 <h1 mat-dialog-title>Hi {{data.name}}</h1>
 <hr>
-<div mat-dialog-content id="container">
-  <p>Short Story creator form below with rich textfield</p>
-<input mat-dialog-input placeholder="Enter a project title" width="">
 
 <p>post type: {{data.id}}</p>
+
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{data.id}} Form
+        </mat-panel-title>
+        <mat-panel-description>
+          <i>(optional)</i>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput placeholder="First name">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Age">
+      </mat-form-field>
+    </mat-expansion-panel>
+  
+    <div  (input)="text = $event.target.value" [froalaEditor] id="textEditor">Hello, Froala!</div>
+
+  </mat-accordion>
+
+<div mat-dialog-content id="container">
+  <p>Short Story creator form below with rich textfield</p>
+<input mat-dialog-input [value]="title" (input)="title = $event.target.value" placeholder="Enter a project title" width="">
 
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="closed" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="closed" (click)="submit()" cdkFocusInitial>Ok</button>
 </div>
