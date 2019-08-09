@@ -27,6 +27,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {MatDialogModule} from '@angular/material';
 import {modal} from './components/navs/side-bar/modals/modal';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { viewModal } from './components/view-modal/view-modal.component';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -39,9 +40,11 @@ const baseUrl = 'http://localhost:3000'
     // ProfileComponent,
     UpdateUserComponent,
     modal,
+    viewModal,
   ],
   entryComponents:[
-    modal
+    modal,
+    viewModal
   ],
   imports: [
     BrowserModule,
@@ -67,8 +70,6 @@ const baseUrl = 'http://localhost:3000'
     MatSidenavModule,
     MatMenuModule,
     MatDialogModule,
-    
-
   ],
   exports: [
     BrowserAnimationsModule,

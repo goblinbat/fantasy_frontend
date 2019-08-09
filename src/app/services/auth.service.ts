@@ -45,7 +45,6 @@ export class AuthService {
 
 	logout() {
 		localStorage.clear();
-		// window.location.reload();
 		this.router.navigate(['/splash/explore']).then(res => window.location.reload())
   	}
 }
