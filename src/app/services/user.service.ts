@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../models/user.model';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -16,6 +17,10 @@ export class UserService {
     } else {
       return this.http.get(`${baseUrl}/user/${username}`, {headers: this.setHeader()})
     }
+  }
+
+  getUserById (id: any){
+    return this.http.get(`${baseUrl}/user/get/${id}`, {headers: this.setHeader()})
   }
 
   editUser(id: number, newData:any) {
