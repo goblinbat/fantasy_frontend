@@ -27,7 +27,7 @@ export class AuthService {
 			console.log(res.user)
 			localStorage.setItem('username', res.user.username); // just ignore the red squiggle, this works
 			localStorage.setItem('userId', res.user.id);		// same, just ignore red squiggle
-			window.location.reload();
+			this.router.navigate(['/splash/explore']).then(res => window.location.reload())
 		})
 	}	
 
@@ -45,7 +45,7 @@ export class AuthService {
 
 	logout() {
 		localStorage.clear();
-		this.router.navigate(['explore'])
-		window.location.reload();
+		// window.location.reload();
+		this.router.navigate(['/splash/explore']).then(res => window.location.reload())
   	}
 }

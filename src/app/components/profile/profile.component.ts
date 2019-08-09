@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   userName: string
   currentUser: any
   bio: string
-  posts: any
+  posts = []
 
   constructor(private user: UserService, private postServe: PostService) { }
 

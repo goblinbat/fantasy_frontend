@@ -39,7 +39,7 @@ export class UpdateUserComponent implements OnInit {
     // console.log(data)
     localStorage.setItem('username', this.userName);
     this.user.editUser(this.userId, data).subscribe(res => {
-      this.router.navigate(["/profile"])
+      this.router.navigate(["/splash/profile"])
     })
   }
 

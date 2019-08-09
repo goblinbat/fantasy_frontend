@@ -11,9 +11,13 @@
     <hr class="division">
     <br>
 
-    <div *ngFor="let post of posts" class="profPostList">
-        <div class="profilePost">
-            <h2>{{post.title}}</h2>
+    <div  *ngIf="posts.length >= 1; else noposts">
+        <div *ngFor="let post of posts" class="profPostList">
+            <div class="profilePost">
+                <h2>{{post.title}}</h2>
+            </div>
         </div>
     </div>
+
+    <ng-template #noposts>You have not yet made any posts</ng-template>
 </div>
