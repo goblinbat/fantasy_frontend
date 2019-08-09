@@ -3,24 +3,24 @@
       [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
       <div id="buttonWrapper">
       <button mat-button routerLink="explore">Explore</button>
-      <br />
+      <br/>
       <button mat-button routerLink="profile">Profile</button>
-      <br />
-      <button mat-button id="campaignButton">+ Campaign</button>
-      <br />
-      <button mat-button id="storyButton">+ Short Story</button>
-      <br />
-      <button mat-button id="creatureButton">+ Creature</button>
-      <br />
+      <br/>
+      <button mat-button id="campaignButton" (click)="openDialog('campaign')">+ Campaign</button>
+      <button mat-button id="storyButton"  (click)="openDialog('story')">+ Short Story</button>
+      <button mat-button id="creatureButton"  (click)="openDialog('creature')">+ Creature</button>
       <button mat-button id="savedButton">Saved Posts</button>
       <br />
     </div>
 
       <div id="buttonGroup2">
             <button mat-button>Settings   <img src="../../../../assets/settings.png" width="15px" height="15px"></button>
+            <button mat-button (click)="logMeOut()">Logout</button>
+
       </div>
     </mat-sidenav>
     
+  
     <mat-sidenav-content class="hamburger" [formGroup]="options">
       <mat-toolbar>
         <button type="button" aria-label="sidenav toggle" mat-icon-button (click)="sidenav.toggle()"><mat-icon>
@@ -33,8 +33,7 @@
         <p>{{title}} &copy; Patrick Bassett, Brian Doan, and Molly Hopper</p>
       </footer>
     </mat-sidenav-content>
-      
-  </mat-sidenav-container>
 
+  </mat-sidenav-container>
   
   

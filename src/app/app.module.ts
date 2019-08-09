@@ -24,6 +24,8 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { SideBarComponent } from './components/navs/side-bar/side-bar.component';
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import {MatDialogModule} from '@angular/material';
+import {modal} from './components/navs/side-bar/modals/modal';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 const baseUrl = 'http://localhost:3000'
@@ -36,6 +38,10 @@ const baseUrl = 'http://localhost:3000'
     TopBarComponent,
     // ProfileComponent,
     UpdateUserComponent,
+    modal,
+  ],
+  entryComponents:[
+    modal
   ],
   imports: [
     BrowserModule,
@@ -60,6 +66,9 @@ const baseUrl = 'http://localhost:3000'
     }),
     MatSidenavModule,
     MatMenuModule,
+    MatDialogModule,
+    
+
   ],
   exports: [
     BrowserAnimationsModule,
@@ -68,7 +77,7 @@ const baseUrl = 'http://localhost:3000'
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
