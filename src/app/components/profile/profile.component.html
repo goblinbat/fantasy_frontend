@@ -4,16 +4,23 @@
     <p *ngIf="bio else nobio">{{bio}}</p>
     <ng-template #nobio>No profile available</ng-template>
 
-    <br>
+    <br><br><br>
     <button routerLink="/update">Edit</button>
 
     <br>
     <hr class="division">
     <br>
 
-    <div *ngFor="let post of posts" class="profPostList">
-        <div class="profilePost">
-            <h2>{{post.title}}</h2>
+    <div  *ngIf="posts.length >= 1; else noposts">
+        <div *ngFor="let post of posts" class="profPostList">
+            <div class="profilePost">
+                <h2>{{post.title}}</h2>
+                <span *ngFor="let tag of post.tags">#{{tag}} </span>
+                <br>
+                <a (click)="showPost(post)">View Post</a>
+            </div>
         </div>
     </div>
+
+    <ng-template #noposts>You have not yet made any posts</ng-template>
 </div>

@@ -8,15 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
- 
-  
+  isLoggedIn: boolean; 
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
-
+    this.isLoggedIn = this.auth.loggedIn
   }
 
- 
+  logMeOut() {
+    this.auth.logout();
+    this.router.navigate(['/auth'])
+  } 
 
 }

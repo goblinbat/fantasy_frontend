@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/app/models/post.model';
+import { MatDialog } from '@angular/material';
+import { viewModal } from '../view-modal/view-modal.component';
 // import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,15 +16,24 @@ export class ProfileComponent implements OnInit {
   userName: string
   currentUser: any
   bio: string
-  posts: any
+  posts = []
 
-  constructor(private user: UserService, private postServe: PostService) { }
+  constructor(private user: UserService, private postServe: PostService, public dialog: MatDialog) { }
 
   getPosts() {
     this.postServe.getPosts().subscribe(posts => {
       this.posts = posts;
       console.log(posts)
     })
+  }
+
+  showPost(clicked: Post) {
+    console.log(clicked)
+    const dialogRef = this.dialog.open(viewModal, {
+      width: '60%',
+      data:{
+        data: clicked
+      }});
   }
 
   ngOnInit() {
