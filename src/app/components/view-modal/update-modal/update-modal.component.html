@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Update Post</h1>
+<hr>
+
+<div mat-dialog-content id="container">
+    <p>this is where editable data will go (via inputs, textareas, etc)</p>
+    <p>gonna wait for create post compoent to be done first so i can match this up to it</p>
+    <p>:3</p>
+
+    <br>
+    <p>{{data.title}} {{data.userName}} {{data.text}}</p>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button cdkFocusInitial (click)="updatePost()">Update</button>
+    <button mat-button (click)="delete()">Delete</button>
+</div>
