@@ -17,6 +17,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { ExploreModule } from './components/explore/explore.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
@@ -31,8 +32,6 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { viewModal } from './components/view-modal/view-modal.component';
 
 const baseUrl = 'http://localhost:3000'
-
-
 
 @NgModule({
   declarations: [
@@ -77,6 +76,7 @@ const baseUrl = 'http://localhost:3000'
     MatExpansionModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(), 
+    MatCheckboxModule
 
 
 

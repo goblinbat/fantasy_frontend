@@ -1,7 +1,19 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Hello, {{data.name}}</h1>
 <hr>
-
-<p>post type: {{data.id}}</p>
+<mat-dialog-content>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Project Title" [formControl]="emailFormControl"
+             [errorStateMatcher]="matcher" [(ngModel)]='newPost.title'>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a project title
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <br>
 
 <mat-accordion>
     <mat-expansion-panel>
@@ -13,26 +25,92 @@
           <i>(optional)</i>
         </mat-panel-description>
       </mat-expansion-panel-header>
+
+      <div id="mainForm" *ngIf="data.id === 'Campaign'">
   
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
+        <h4>Pick tags for your project!</h4>
+        <p>These help other find your project, and help give a brief look at what you project is about!</p>
+    
+      <mat-checkbox 
+      (ngModel)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+      <mat-checkbox (ngModel)="saveTags('Low Fantasy')">Low Fantasy</mat-checkbox>
+      <mat-checkbox>Sci-fi</mat-checkbox>
+      <mat-checkbox>Steampunk</mat-checkbox>
+      <mat-checkbox>Horror</mat-checkbox>
+      <mat-checkbox>Mystery/Intrigue</mat-checkbox>
+      <mat-checkbox>Action/Adventure</mat-checkbox>
+      <mat-checkbox>Political</mat-checkbox>
+
+      <hr>
+      <h4>Plot</h4>
+      <mat-form-field id="plotText">
+          <textarea matInput placeholder="plot information..." width="100%" [(ngModel)]='newPost.text.plot'></textarea>
+        </mat-form-field>
+      <h4>Characters</h4>
+      <mat-form-field id="characterText">
+          <textarea matInput placeholder="character information..." width="100%" [(ngModel)]='newPost.text.characters'></textarea>
+        </mat-form-field>
+        <h4>Setting</h4>
+      <mat-form-field id="settingText">
+          <textarea matInput placeholder="setting information..." width="100%" [(ngModel)]='newPost.text.setting'></textarea>
+        </mat-form-field>
+        <h4>Themes</h4>
+      <mat-form-field id="themeText">
+          <textarea matInput placeholder="theme information..." width="100%" [(ngModel)]='newPost.text.themes'></textarea>
+        </mat-form-field>
+
+    </div>
+
+    <div id="mainForm" *ngIf="data.id === 'Short Story'">
   
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="First name">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput placeholder="Age">
+        </mat-form-field>
+        <p>yas</p>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+      <div id="mainForm" *ngIf="data.id === 'Creature'">
+  
+          <mat-form-field>
+            <input matInput placeholder="First name">
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Age">
+          </mat-form-field>
+          <p>ss</p>
+      
+    
+    
+    
+    
+    
+    
+    
+    
+        </div>
     </mat-expansion-panel>
   
-    <div  (input)="text = $event.target.value" [froalaEditor] id="textEditor">Hello, Froala!</div>
-
   </mat-accordion>
 
-<div mat-dialog-content id="container">
-  <p>Short Story creator form below with rich textfield</p>
-<input mat-dialog-input [value]="title" (input)="title = $event.target.value" placeholder="Enter a project title" width="">
+  <div [froalaEditor]="newPost.text.main" id="textEditor">Enter your {{data.id}} here</div>
+</mat-dialog-content>
 
-</div>
+
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="closed" (click)="submit()" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="closed" (click)="submit(data.id)" cdkFocusInitial>Ok</button>
 </div>
