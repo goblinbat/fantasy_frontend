@@ -13,6 +13,7 @@ import {modal} from './modals/modal';
 export class SideBarComponent implements OnInit {
   explore: true;
   profile: false;
+  // viewPost = false;
   options: FormGroup;
   isLoggedIn: boolean;
 

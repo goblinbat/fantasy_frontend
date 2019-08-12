@@ -1,53 +1,53 @@
-<h1 mat-dialog-title>{{data.data.title}}</h1>
-<h4>{{data.data.userName}}</h4>
+<h1 mat-title>{{data.title}}</h1>
+<h4>{{data.userName}}</h4>
 
 <hr>
 
 
-<div mat-dialog-content id="container" *ngIf="campaign">
+<div mat-content id="container" *ngIf="campaign">
     <!-- <p>campaign post</p> -->
-    <p>{{data.data.text}}</p>
+    <p>{{data.text}}</p>
     <br>
-    <span *ngFor="let tag of data.data.tags"> #{{tag}} </span>  
+    <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
     <!-- <br> -->
-    <!-- <span>Likes: {{data.data.likes}}</span> -->
+    <!-- <span>Likes: {{data.likes}}</span> -->
 </div>
 
-<div mat-dialog-content id="container" *ngIf="story">
+<div mat-content id="container" *ngIf="story">
     <!-- <p>story post</p> -->
-    <p>{{data.data.text}}</p>
+    <p>{{data.text}}</p>
     <br>
-    <span *ngFor="let tag of data.data.tags"> #{{tag}} </span>  
+    <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
     <!-- <br> -->
-    <!-- <span>Likes: {{data.data.likes}}</span>   -->
+    <!-- <span>Likes: {{data.likes}}</span>   -->
 </div>
 
-<div mat-dialog-content id="container" *ngIf="creature">
+<div mat-content id="container" *ngIf="creature">
     <!-- <p>Creature post</p> -->
-    <h3>{{data.data.iName}}</h3>
-    <p>{{data.data.text}}</p>
-    <p>{{data.data.iCat}}
-    <p>{{data.data.iAlign}}</p> 
-    <p>{{data.data.iCR}}</p>
-    <p>{{data.data.iRange}}</p>
-    <p>{{data.data.iThrow}}</p>
-    <p>{{data.data.iProperties}}</p>
-    <p>{{data.data.iScores}}</p>
-    <p>{{data.data.iVuln}}</p>
-    <p>{{data.data.iResist}}</p>
-    <p>{{data.data.iImmune}}</p>
-    <p>{{data.data.iLang}}</p>
-    <p>{{data.data.iCR}}</p>
+    <h3>{{data.iName}}</h3>
+    <p>{{data.text}}</p>
+    <p>{{data.iCat}}
+    <p>{{data.iAlign}}</p> 
+    <p>{{data.iCR}}</p>
+    <p>{{data.iRange}}</p>
+    <p>{{data.iThrow}}</p>
+    <p>{{data.iProperties}}</p>
+    <p>{{data.iScores}}</p>
+    <p>{{data.iVuln}}</p>
+    <p>{{data.iResist}}</p>
+    <p>{{data.iImmune}}</p>
+    <p>{{data.iLang}}</p>
+    <p>{{data.iCR}}</p>
     <br>
-    <span *ngFor="let tag of data.data.tags"> #{{tag}} </span>  
+    <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
     <!-- <br> -->
-    <!-- <span>Likes: {{data.data.likes}}</span> -->
+    <!-- <span>Likes: {{data.likes}}</span> -->
 </div>
 
 
 <hr>
 
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" cdkFocusInitial>Close</button>
-    <button mat-button [mat-dialog-close]="closed" (click)="editPost()">Edit</button>
+<div mat-actions>
+    <button mat-button (click)="goBack()">Back</button>
+    <button mat-button (click)="editPost()">Edit</button>
 </div>

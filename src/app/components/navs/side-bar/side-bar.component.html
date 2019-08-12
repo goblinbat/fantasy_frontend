@@ -16,22 +16,16 @@
       <div id="buttonGroup2">
             <button mat-button>Settings   <img src="../../../../assets/settings.png" width="15px" height="15px"></button>
             <button mat-button (click)="logMeOut()">Logout</button>
-
       </div>
     </mat-sidenav>
     
-  
     <mat-sidenav-content class="hamburger" [formGroup]="options">
       <mat-toolbar>
-        <button type="button" aria-label="sidenav toggle" mat-icon-button (click)="sidenav.toggle()"><mat-icon>
-          <img src="../../../../assets/menu.png" width="20em" height="20em"> </mat-icon>
+        <button type="button" aria-label="sidenav toggle" mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon> <img src="../../../../assets/menu.png" width="20em" height="20em"> </mat-icon>
         </button>
       </mat-toolbar>
       <router-outlet></router-outlet>
-      
-      <footer>
-        <p>{{title}} &copy; Patrick Bassett, Brian Doan, and Molly Hopper</p>
-      </footer>
     </mat-sidenav-content>
 
   </mat-sidenav-container>

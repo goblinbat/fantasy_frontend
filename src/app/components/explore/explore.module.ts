@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { ExploreRoutingModule } from './explore-routing.module';
 import { ExploreComponent } from './explore.component';
+import { viewModal } from '../view-modal/view-modal.component';
 
 
 @NgModule({
   declarations: [ExploreComponent],
   imports: [
     CommonModule,
-    ExploreRoutingModule
+    ExploreRoutingModule,
   ]
 })
 export class ExploreModule { }
