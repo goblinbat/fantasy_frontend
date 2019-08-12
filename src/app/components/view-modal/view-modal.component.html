@@ -1,5 +1,5 @@
-<h1 mat-title>{{data.title}}</h1>
-<h4>{{data.userName}}</h4>
+<h1 mat-title *ngIf="data">{{data.title}}</h1>
+<h4 *ngIf="data">{{data.userName}}</h4>
 
 <hr>
 
@@ -49,5 +49,5 @@
 
 <div mat-actions>
     <button mat-button (click)="goBack()">Back</button>
-    <button mat-button (click)="editPost()">Edit</button>
+    <button mat-button *ngIf="data && data.userId === logId" (click)="editPost(data)">Edit</button>
 </div>

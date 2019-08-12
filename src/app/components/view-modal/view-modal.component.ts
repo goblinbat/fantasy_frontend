@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
+import { MatDialog } from '@angular/material';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @Component({
   selector: 'app-view-modal',
@@ -11,14 +13,16 @@ import { PostService } from 'src/app/services/post.service';
 export class viewModal implements OnInit {
   postId
   data
+  logId
   story = false
   campaign = false
   creature = false
   
-  constructor (private route: ActivatedRoute, private posst: PostService, private _location: Location) {}
+  constructor (private route: ActivatedRoute, private posst: PostService, private _location: Location, private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.postId = this.route.snapshot.paramMap.get("id");
+    this.logId = Number(localStorage.getItem('userId'))
+    this.postId = Number(this.route.snapshot.paramMap.get("id"))
     this.posst.getPost(this.postId).subscribe(res => {
       this.data = res; 
       console.log(this.data)
@@ -35,6 +39,7 @@ export class viewModal implements OnInit {
         this.campaign = false;
         this.creature = true;
       };
+      // console.log(this.data.userId, this.logId, this.postId)
     });
   };
 
@@ -42,8 +47,12 @@ export class viewModal implements OnInit {
     this._location.back()
   }
 
-  editPost() {
-    console.log('edit the post')
+  editPost(toEdit) {
+    console.log(toEdit)
+    const dialogRef = this.dialog.open(UpdateModalComponent, {
+      width: '60%',
+      data: toEdit
+    });
   }
 
 }
