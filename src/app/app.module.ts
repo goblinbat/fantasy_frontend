@@ -30,6 +30,7 @@ import {MatDialogModule} from '@angular/material';
 import {modal} from './components/navs/side-bar/modals/modal';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { viewModal } from './components/view-modal/view-modal.component';
+import { UpdateModalComponent } from './components/view-modal/update-modal/update-modal.component';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -41,12 +42,11 @@ const baseUrl = 'http://localhost:3000'
     TopBarComponent,
     UpdateUserComponent,
     modal,
-    viewModal,
-   
+    UpdateModalComponent
   ],
   entryComponents:[
     modal,
-    viewModal
+    UpdateModalComponent
   ],
   imports: [
     BrowserModule,

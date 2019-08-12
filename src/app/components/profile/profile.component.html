@@ -17,7 +17,8 @@
                 <h2>{{post.title}}</h2>
                 <span *ngFor="let tag of post.tags">#{{tag}} </span>
                 <br>
-                <a (click)="showPost(post)">View Post</a>
+                <!-- <a (click)="showPost(post)">View Post</a> -->
+                <a routerLink="/splash/post/{{post.id}}">View Post</a>
             </div>
         </div>
     </div>

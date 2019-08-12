@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path: 'profile', loadChildren: () => 
           import ('./components/profile/profile.module').then(m => m.ProfileModule)
+      },
+      {
+        path: 'post/:id', loadChildren: () => 
+          import ('./components/view-modal/view.module').then(m => m.viewModule)
       }
     ] 
   },

@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { Post } from 'src/app/models/post.model';
-import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/models/user.model';
+import {Location} from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { PostService } from 'src/app/services/post.service';
+import { MatDialog } from '@angular/material';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @Component({
   selector: 'app-view-modal',
@@ -10,35 +11,48 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./view-modal.component.css']
 })
 export class viewModal implements OnInit {
-  campaign = false
+  postId
+  data
+  logId
   story = false
+  campaign = false
   creature = false
   
-  constructor(public dialogRef: MatDialogRef<viewModal>, private user: UserService,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }   // data is the post clicked on
+  constructor (private route: ActivatedRoute, private posst: PostService, private _location: Location, private dialog: MatDialog) {}
 
   ngOnInit() {
-    if (this.data.data.type === 'campaign') {
-      this.campaign = true
-      this.story = false
-      this.creature = false
-    } else if (this.data.data.type === 'story') {
-      this.campaign = false
-      this.story = true
-      this.creature = false
-    } else {
-      this.campaign = false
-      this.story = false
-      this.creature = true
-    }
+    this.logId = Number(localStorage.getItem('userId'))
+    this.postId = Number(this.route.snapshot.paramMap.get("id"))
+    this.posst.getPost(this.postId).subscribe(res => {
+      this.data = res; 
+      console.log(this.data)
+      if (this.data.type === 'campaign') {
+        this.story = false;
+        this.campaign = true;
+        this.creature = false;
+      } else if (this.data.type === 'story') {
+        this.story = true;
+        this.campaign = false;
+        this.creature = false;
+      } else {
+        this.story = false;
+        this.campaign = false;
+        this.creature = true;
+      };
+      // console.log(this.data.userId, this.logId, this.postId)
+    });
+  };
+
+  goBack() {
+    this._location.back()
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  editPost() {
-    console.log('edit the post')
+  editPost(toEdit) {
+    console.log(toEdit)
+    const dialogRef = this.dialog.open(UpdateModalComponent, {
+      width: '60%',
+      data: toEdit
+    });
   }
 
 }
