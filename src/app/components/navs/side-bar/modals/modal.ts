@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
@@ -38,13 +38,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       }
 
       newPost={
+        userId:0,
+        userName:'',
         type:'',
         text:'',
+
         plot:'',
         characters:'',
         setting:'',
         themes:'',
-        main:'',
+        
         title:'',
         likes:0,
         tags:[]
@@ -64,9 +67,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       this.dialogRef.close();
     }
 
-    submit(id): void{
+    submit(id,name,userId): void{
       this.newPost.type=id;
-      // this.postService.createPost(this);
+      this.newPost.userName=name;
+      this.newPost.text += this.newPost.plot + this.newPost.characters +this.newPost.setting +this.newPost.themes;
+      this.newPost.userId = userId;
+      this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
       console.log(this.newPost.type,this.newPost.text,this.newPost.title,this.newPost.tags);
 
 

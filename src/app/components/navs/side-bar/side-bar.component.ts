@@ -19,6 +19,7 @@ export class SideBarComponent implements OnInit {
 
   modalID:string;
   name:string = localStorage.getItem('username');
+  userId:string = localStorage.getItem('userId');
 
 
   constructor(fb: FormBuilder,private auth : AuthService, private router: Router,public dialog: MatDialog) {
@@ -40,7 +41,8 @@ export class SideBarComponent implements OnInit {
       width: '60%',
       data:{
         id: this.modalID,
-        name: this.name
+        name: this.name,
+        userId: Number(this.userId),
       }
     
     });

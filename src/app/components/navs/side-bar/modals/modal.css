@@ -4,3 +4,6 @@
 #mainForm{
     background-color: '#ff2088';
 }
+.mat-checkbox{
+    padding:5px;
+}

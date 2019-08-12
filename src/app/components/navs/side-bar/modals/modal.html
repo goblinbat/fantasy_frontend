@@ -31,32 +31,31 @@
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
     
-      <mat-checkbox 
-      (ngModel)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
-      <mat-checkbox (ngModel)="saveTags('Low Fantasy')">Low Fantasy</mat-checkbox>
-      <mat-checkbox>Sci-fi</mat-checkbox>
-      <mat-checkbox>Steampunk</mat-checkbox>
-      <mat-checkbox>Horror</mat-checkbox>
-      <mat-checkbox>Mystery/Intrigue</mat-checkbox>
-      <mat-checkbox>Action/Adventure</mat-checkbox>
-      <mat-checkbox>Political</mat-checkbox>
+      <mat-checkbox (input)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Low Fantasy')">Low Fantasy</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Sci-fi')">Sci-fi</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Steampunk')">Steampunk</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Horror')">Horror</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Mystery/Intrigue')">Mystery/Intrigue</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Action/Adventure')">Action/Adventure</mat-checkbox>
+      <mat-checkbox (input)="saveTags('Political')">Political</mat-checkbox>
 
       <hr>
       <h4>Plot</h4>
       <mat-form-field id="plotText">
-          <textarea matInput placeholder="plot information..." width="100%" [(ngModel)]='newPost.text.plot'></textarea>
+          <textarea matInput placeholder="plot information..." width="100%" [(ngModel)]='newPost.plot'></textarea>
         </mat-form-field>
       <h4>Characters</h4>
       <mat-form-field id="characterText">
-          <textarea matInput placeholder="character information..." width="100%" [(ngModel)]='newPost.text.characters'></textarea>
+          <textarea matInput placeholder="character information..." width="100%" [(ngModel)]='newPost.characters'></textarea>
         </mat-form-field>
         <h4>Setting</h4>
       <mat-form-field id="settingText">
-          <textarea matInput placeholder="setting information..." width="100%" [(ngModel)]='newPost.text.setting'></textarea>
+          <textarea matInput placeholder="setting information..." width="100%" [(ngModel)]='newPost.setting'></textarea>
         </mat-form-field>
         <h4>Themes</h4>
       <mat-form-field id="themeText">
-          <textarea matInput placeholder="theme information..." width="100%" [(ngModel)]='newPost.text.themes'></textarea>
+          <textarea matInput placeholder="theme information..." width="100%" [(ngModel)]='newPost.themes'></textarea>
         </mat-form-field>
 
     </div>
@@ -106,11 +105,11 @@
   
   </mat-accordion>
 
-  <div [froalaEditor]="newPost.text.main" id="textEditor">Enter your {{data.id}} here</div>
+  <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor">Enter your {{data.id}} here</textarea>
 </mat-dialog-content>
 
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="closed" (click)="submit(data.id)" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="closed" (click)="submit(data.id,data.name,data.userId)" cdkFocusInitial>Submit</button>
 </div>
