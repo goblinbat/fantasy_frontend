@@ -40,11 +40,11 @@ const baseUrl = 'http://localhost:3000'
     // ProfileComponent,
     UpdateUserComponent,
     modal,
-    viewModal,
+    // viewModal,
   ],
   entryComponents:[
     modal,
-    viewModal
+    // viewModal
   ],
   imports: [
     BrowserModule,

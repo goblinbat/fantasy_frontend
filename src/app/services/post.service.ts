@@ -26,7 +26,7 @@ export class PostService {
   // get a single post
   getPost(id: number): Observable<Post[]> {
     const url = `${baseUrl}/post/${id}`
-    return this.http.get<Post[]>(url)
+    return this.http.get<Post[]>(url, {headers: this.setHeader()})
   }
 
   // create post
