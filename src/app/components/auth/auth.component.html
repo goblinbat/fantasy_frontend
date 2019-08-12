@@ -1,20 +1,6 @@
-<div *ngIf="login; else signup">
-  <h1 class="title">Login</h1>
-  <mat-form-field>
-    <input matInput placeholder="username" name="username" [(ngModel)]="newUser.username" />
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password" />
-  </mat-form-field>
-  <br>
-  <button mat-stroked-button (click)="onSubmit()" type="submit">Submit</button>
-  <button mat-button (click)="login = false">Don't have an account?</button>
-</div>
- 
-<ng-template #signup>
-  <div>  
-    <h1 class="title">Sign Up</h1>
+<div class="body">
+  <div *ngIf="login; else signup">
+    <h1 class="title">Login</h1>
     <mat-form-field>
       <input matInput placeholder="username" name="username" [(ngModel)]="newUser.username" />
     </mat-form-field>
@@ -23,10 +9,26 @@
       <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password" />
     </mat-form-field>
     <br>
-    <button mat-stroked-button (click)="onSubmit()" type="submit">Submit</button>
-    <button mat-button (click)="login = true">I have an account</button>
+    <button mat-stroked-button (click)="onSubmit()" type="submit" class="submit-btn">Submit</button>
+    <button mat-button (click)="login = false">Don't have an account?</button>
   </div>
-</ng-template>
-
-<br><br>
-<button mat-fab class="explore" color="accent" routerLink='/splash'>Explore</button>
+   
+  <ng-template #signup>
+    <div>  
+      <h1 class="title">Sign Up</h1>
+      <mat-form-field>
+        <input matInput placeholder="username" name="username" [(ngModel)]="newUser.username" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="password" type="password" name="password" [(ngModel)]="newUser.password" />
+      </mat-form-field>
+      <br>
+      <button mat-stroked-button (click)="onSubmit()" type="submit" class="submit-btn">Submit</button>
+      <button mat-button (click)="login = true">I have an account</button>
+    </div>
+  </ng-template>
+  
+  <br><br>
+  <button mat-fab class="explore" color="accent" routerLink='/splash'>Explore</button>
+</div>

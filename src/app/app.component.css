@@ -46,6 +46,14 @@
 } */
 
 #contentWindow {
+
     min-height: 35vh;
 }
 
+footer {
+    margin-top: 56vh;
+    background-color: var(--tertiary);
+    background-image: url('../assets/old-map.png');
+    text-align: center;
+    padding: 1em;
+}
