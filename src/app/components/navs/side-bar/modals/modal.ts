@@ -24,12 +24,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     ]);
     matcher = new MyErrorStateMatcher();
 
-
+    plot:string;
+    characters:string;
+    setting:string;
+    themes:string;
 
     panelOpenState = false;
 
-      
-  
+   
     constructor(
       public dialogRef: MatDialogRef<modal>,
       @Inject(MAT_DIALOG_DATA) public data: string,
@@ -38,28 +40,35 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       }
 
       newPost={
-        userId:0,
-        userName:'',
         type:'',
         text:'',
-
-        plot:'',
-        characters:'',
-        setting:'',
-        themes:'',
-        
         title:'',
         likes:0,
-        tags:[]
+        tags:[],
+        likedBy:[],
+
+        iName:'',
+        iCat:'',
+        iRange:'',
+        iThrow:'',
+        iProperties:'',
+        iAlign:'',
+        iScores:'',
+        iVuln:'',
+        iResist:'',
+        iImmune:'',
+        iLang:'',
+        iAction:'',
+        iCR:0
+
+
       }
+
        counter:number = 0;
        
     saveTags(value:any):void{
-     
       this.newPost.tags[this.counter] = value;
       this.counter++;
-
-
     }
         
   
@@ -67,13 +76,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       this.dialogRef.close();
     }
 
-    submit(id,name,userId): void{
+    submit(id): void{
       this.newPost.type=id;
-      this.newPost.userName=name;
-      this.newPost.text += this.newPost.plot + this.newPost.characters +this.newPost.setting +this.newPost.themes;
-      this.newPost.userId = userId;
-      this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
-      console.log(this.newPost.type,this.newPost.text,this.newPost.title,this.newPost.tags);
+      this.newPost.text += this.plot + this.characters + this.setting + this.themes;
+      this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
+     
+       this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
+
+      // console.log(this.newPost);
+      // console.log(this.newPost.tags);
 
 
     }
