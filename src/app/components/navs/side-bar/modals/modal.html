@@ -26,20 +26,20 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <div id="mainForm" *ngIf="data.id === 'Campaign'">
+      <div id="mainForm" *ngIf="data.id === 'campaign'">
   
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
     
         
-      <mat-checkbox (click)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+      <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Horror")'>Horror</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-      <mat-checkbox  (click)='saveTags("High Fantasy")'>Political</mat-checkbox>
+      <mat-checkbox  (click)='saveTags("Political")'>Political</mat-checkbox>
 
       <hr>
       <h4>Plot</h4>
@@ -61,37 +61,37 @@
 
     </div>
 
-    <div id="mainForm" *ngIf="data.id === 'Short Story'">
+    <div id="mainForm" *ngIf="data.id === 'story'">
 
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
     
         
-      <mat-checkbox (click)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+      <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Horror")'>Horror</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
       <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-      <mat-checkbox  (click)='saveTags("High Fantasy")'>Political</mat-checkbox>
+      <mat-checkbox  (click)='saveTags("Political")'>Political</mat-checkbox>
 
 
       </div>
 
-      <div id="mainForm" *ngIf="data.id === 'Creature'">
+      <div id="mainForm" *ngIf="data.id === 'creature'">
           <h4>Pick tags for your project!</h4>
           <p>These help other find your project, and help give a brief look at what you project is about!</p>
       
           
-          <mat-checkbox (click)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+          <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
           <mat-checkbox  (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
           <mat-checkbox  (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
           <mat-checkbox  (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
           <mat-checkbox  (click)='saveTags("Horror")'>Horror</mat-checkbox>
           <mat-checkbox  (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
           <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-          <mat-checkbox  (click)='saveTags("High Fantasy")'>Political</mat-checkbox>
+          <mat-checkbox  (click)='saveTags("Political")'>Political</mat-checkbox>
     
         <hr>
   
@@ -147,13 +147,6 @@
                                   <input [(ngModel)]='newPost.iCR' matInput placeholder="challenge rating">
                                 </mat-form-field>
             
-
-
-                  
-                      
-      
-         
-      
 
         </div>
     </mat-expansion-panel>
