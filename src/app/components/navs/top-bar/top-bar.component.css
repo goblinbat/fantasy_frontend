@@ -10,10 +10,12 @@ button {
   font-size: 1.2em;
   padding-top: .5em;
   padding-bottom: .5em;
+  color: var(--primary-dark)
 }
 
 button:hover {
-  background-color: var(--tertiary-dark)
+  background-color: var(--tertiary-dark);
+  color: var(--primary-darker)
 }
 
 #loginButton{

@@ -24,9 +24,11 @@
 
 .side-btn {
   font-size: 1.2em;
+  color: var(--primary-dark);
 }
 
 .side-btn:hover {
+  color: var(--primary-darker);
   background-color: var(--tertiary-dark)
 }
 
@@ -55,6 +57,3 @@ mat-tab-group {
   margin-left: 4.5vw;
 }
 
-footer {
-  text-align: center;
-}
