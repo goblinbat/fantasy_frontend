@@ -19,6 +19,7 @@ export class UpdateModalComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   panelOpenState = false;
+  hold
 
   constructor(
     private posst: PostService,
@@ -46,6 +47,7 @@ export class UpdateModalComponent implements OnInit {
     }
 
   onNoClick(): void {
+    this.fixText()
     this.dialogRef.close();
   }
 
@@ -58,13 +60,24 @@ export class UpdateModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  fixText() {
+    if (this.updatedPost.text !== this.hold) {
+      let editedText = this.updatedPost.text.substring(3,this.updatedPost.text.length-4)
+      this.updatedPost.text = editedText.trim();
+    } else {
+      this.data.text = this.data.text.trim();
+    }
+  }
+
   updatePost() {
+    this.fixText();
     this.posst.updatePost(this.data.id, this.updatedPost).subscribe(res => console.log(res))
     location.reload();
   }
 
   ngOnInit() { 
     this.updatedPost = this.data
+    this.hold = this.data.text
     // console.log(this.updatedPost)
   }
 
