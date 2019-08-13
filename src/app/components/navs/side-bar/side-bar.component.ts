@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {modal} from './modals/modal';
+
  
 @Component({
   selector: 'app-side-bar',
@@ -18,6 +19,8 @@ export class SideBarComponent implements OnInit {
   isLoggedIn: boolean;
 
   modalID:string;
+  name:string = localStorage.getItem('username');
+  userId:string = localStorage.getItem('userId');
 
 
   constructor(fb: FormBuilder,private auth : AuthService, private router: Router,public dialog: MatDialog) {
@@ -38,7 +41,9 @@ export class SideBarComponent implements OnInit {
     const dialogRef = this.dialog.open(modal, {
       width: '60%',
       data:{
-        id: this.modalID
+        id: this.modalID,
+        name: this.name,
+        userId: Number(this.userId),
       }
     
     });

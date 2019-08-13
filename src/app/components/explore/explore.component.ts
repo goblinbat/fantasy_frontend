@@ -12,7 +12,7 @@ import { PostService } from '../../services/post.service';
 export class ExploreComponent implements OnInit {
   posts: any
   
-  constructor(private postService: PostService, public dialog: MatDialog) { }
+  constructor(private postService: PostService, public dialog: MatDialog ) { }
   
   getAllPosts() {
     this.postService.getAllPosts().subscribe(posts => {
