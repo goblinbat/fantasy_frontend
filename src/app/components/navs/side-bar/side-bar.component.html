@@ -2,20 +2,20 @@
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
       [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
       <div id="buttonWrapper">
-      <button mat-button routerLink="explore">Explore</button>
-      <br/>
-      <button mat-button routerLink="profile">Profile</button>
-      <br/>
-      <button mat-button id="campaignButton" (click)="openDialog('Campaign')">+ Campaign</button>
-      <button mat-button id="storyButton"  (click)="openDialog('Short Story')">+ Short Story</button>
-      <button mat-button id="creatureButton"  (click)="openDialog('Creature')">+ Creature</button>
-      <button mat-button id="savedButton">Saved Posts</button>
-      <br />
-    </div>
+        <button mat-button class="side-btn" routerLink="explore">Explore</button>
+        <br/>
+        <button mat-button class="side-btn" routerLink="profile">Profile</button>
+        <br/>
+        <button mat-button class="side-btn" id="campaignButton" (click)="openDialog('campaign')">+ Campaign</button>
+        <button mat-button class="side-btn" id="storyButton"  (click)="openDialog('story')">+ Short Story</button>
+        <button mat-button class="side-btn" id="creatureButton"  (click)="openDialog('creature')">+ Creature</button>
+        <button mat-button class="side-btn" id="savedButton">Saved Posts</button>
+        <br />
+      </div>
 
       <div id="buttonGroup2">
-            <button mat-button>Settings   <img src="../../../../assets/settings.png" width="15px" height="15px"></button>
-            <button mat-button (click)="logMeOut()">Logout</button>
+        <button mat-button class="side-btn">Settings   <img src="../../../../assets/settings.png" width="15px" height="15px"></button>
+        <button mat-button class="side-btn" (click)="logMeOut()">Logout</button>
       </div>
     </mat-sidenav>
     
@@ -25,9 +25,12 @@
           <mat-icon> <img src="../../../../assets/menu.png" width="20em" height="20em"> </mat-icon>
         </button>
       </mat-toolbar>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
 
-  </mat-sidenav-container>
+      <div id="content">
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
   
   

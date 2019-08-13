@@ -23,11 +23,14 @@ const routes: Routes = [
       {
         path: 'post/:id', loadChildren: () => 
           import ('./components/view-modal/view.module').then(m => m.viewModule)
+      },
+      { path: 'update', loadChildren: () =>
+          import ('./components/update-user/update-user.module').then(m => m.UpdateUserModule)
       }
     ] 
   },
   // { path: 'profile', component: ProfileComponent},
-  { path: 'update', component: UpdateUserComponent},
+  // { path: 'update', component: UpdateUserComponent},
 ];
 
 @NgModule({
