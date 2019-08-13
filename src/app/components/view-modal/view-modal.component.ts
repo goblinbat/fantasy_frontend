@@ -21,7 +21,11 @@ export class viewModal implements OnInit {
   constructor (private route: ActivatedRoute, private posst: PostService, private _location: Location, private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.logId = Number(localStorage.getItem('userId'))
+    if (localStorage.getItem('userId')) {
+      this.logId = Number(localStorage.getItem('userId'))
+    } else {
+      this.logId = 0
+    }
     this.postId = Number(this.route.snapshot.paramMap.get("id"))
     this.posst.getPost(this.postId).subscribe(res => {
       this.data = res; 
