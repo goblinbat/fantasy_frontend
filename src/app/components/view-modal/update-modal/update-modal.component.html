@@ -1,14 +1,169 @@
 <h1 mat-dialog-title>Update Post</h1>
 <hr>
 
-<div mat-dialog-content id="container">
-    <p>this is where editable data will go (via inputs, textareas, etc)</p>
-    <p>gonna wait for create post compoent to be done first so i can match this up to it</p>
-    <p>:3</p>
-
+<mat-dialog-content id="container">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput value="{{data.title}}" [formControl]="emailFormControl"
+                    [errorStateMatcher]="matcher" [(ngModel)]='updatedPost.title'>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Project title is required
+            </mat-error>
+        </mat-form-field>
+    </form>
     <br>
-    <p>{{data.title}} {{data.userName}} {{data.text}}</p>
-</div>
+    
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{data.type}} Form
+                </mat-panel-title>
+                <mat-panel-description>
+                    <i>(optional)</i>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <div id="mainForm" *ngIf="data.type === 'campaign'">
+        
+                <h4>Pick tags for your project!</h4>
+                <p>These help other find your project, and help give a brief look at what you project is about!</p>
+            
+                <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
+        
+                <hr>
+
+                <h4>Plot</h4>
+                <mat-form-field id="plotText">
+                    <textarea matInput value="{{data.iProperties}}" width="100%" [(ngModel)]='updatedPost.iProperties'>{{data.iProperties}}</textarea>
+                </mat-form-field>
+
+                <h4>Characters</h4>
+                <mat-form-field id="characterText">
+                    <textarea matInput value="{{data.iScores}}" width="100%" [(ngModel)]='updatedPost.iScores'>{{data.iScores}}</textarea>
+                </mat-form-field>
+
+                <h4>Setting</h4>
+                <mat-form-field id="settingText">
+                    <textarea matInput value="{{data.iVuln}}" width="100%" [(ngModel)]='updatedPost.iVuln'>{{data.iVuln}}</textarea>
+                </mat-form-field>
+
+                <h4>Themes</h4>
+                <mat-form-field id="themeText">
+                    <textarea matInput value="{{data.iAction}}" width="100%" [(ngModel)]='updatedPost.iAction'>{{data.iAction}}</textarea>
+                </mat-form-field>
+        
+            </div>
+        
+            <div id="mainForm" *ngIf="data.type === 'story'">
+        
+                <h4>Pick tags for your project!</h4>
+                <p>These help other find your project, and help give a brief look at what you project is about!</p>
+            
+                <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Poliical")'>Political</mat-checkbox>
+        
+                <hr>
+
+                <h4>Plot</h4>
+                <mat-form-field id="plotText">
+                    <textarea matInput value="{{data.iProperties}}" width="100%" [(ngModel)]='updatedPost.iProperties'>{{data.iProperties}}</textarea>
+                </mat-form-field>
+
+                <h4>Characters</h4>
+                <mat-form-field id="characterText">
+                    <textarea matInput value="{{data.iScores}}" width="100%" [(ngModel)]='updatedPost.iScores'>{{data.iScores}}</textarea>
+                </mat-form-field>
+
+                <h4>Setting</h4>
+                <mat-form-field id="settingText">
+                    <textarea matInput value="{{data.iVuln}}" width="100%" [(ngModel)]='updatedPost.iVuln'>{{data.iVuln}}</textarea>
+                </mat-form-field>
+
+                <h4>Themes</h4>
+                <mat-form-field id="themeText">
+                    <textarea matInput value="{{data.iAction}}" width="100%" [(ngModel)]='updatedPost.iAction'>{{data.iAction}}</textarea>
+                </mat-form-field>
+        
+            </div>
+        
+            <div id="mainForm" *ngIf="data.type === 'creature'">
+                <h4>Pick tags for your project!</h4>
+                <p>These help other find your project, and help give a brief look at what you project is about!</p>
+            
+                
+                <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
+                <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
+            
+                <hr>
+        
+                <mat-form-field>
+                    <input [(ngModel)]='updatedPost.iName' matInput value="{{data.iName}}">
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='updatedPost.iCat' matInput value="{{data.iCat}}">
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='updatedPost.iRange' matInput value="{{data.iRange}}">
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='updatedPost.iThrow' matInput value="{{data.iThrow}}">
+                </mat-form-field>
+        
+                <br>
+        
+                <mat-form-field>
+                    <textarea [(ngModel)]='updatedPost.iProperties' matIput value="{{data.iProperties}}">{{data.iProperties}}</textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <input  [(ngModel)]='updatedPost.iAlign' matInput value="{{data.iAlign}}">
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea [(ngModel)]='updatedPost.iScores' matInput value="{{data.iScores}}">{{data.iScores}}</textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea [(ngModel)]='updatedPost.iResist' matInput value="{{data.iResist}}">{{data.iResist}}</textarea>
+                </mat-form-field>
+        
+                <br>
+        
+                <mat-form-field>
+                    <textarea [(ngModel)]='updatedPost.iImmune' matInput value="data.iImmune">{{data.iImmune}}</textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea [(ngModel)]='updatedPost.iLang' matInput value="data.iLang">{{data.iLang}}</textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea [(ngModel)]='updatedPost.iAction' matInput value="data.iAction">{{data.iAction}}</textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='updatedPost.iCR' matInput value="data.iCR">
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+              
+    <textarea [(ngModel)]="updatedPost.text" [froalaEditor] id="textEditor" value="data.text">{{data.text}}</textarea>
+</mat-dialog-content>
 
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>

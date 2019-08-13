@@ -28,7 +28,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     characters:string;
     setting:string;
     themes:string;
-
+    editedText: string;
     panelOpenState = false;
 
    
@@ -65,7 +65,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       this.newPost.tags[this.counter] = value;
       this.counter++;
     }
-        
   
     onNoClick(): void {
       this.dialogRef.close();
@@ -73,6 +72,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
     submit(id): void{
       this.newPost.type = id;
+      this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
+      this.newPost.text = this.editedText;
       // this.newPost.text += this.plot + this.characters + this.setting + this.themes;
       // this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
      
