@@ -35,9 +35,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     constructor(
       public dialogRef: MatDialogRef<modal>,
       @Inject(MAT_DIALOG_DATA) public data: string,
-      private postService: PostService) {
-        
-      }
+      private postService: PostService) { }
 
       newPost={
         type:'',
@@ -46,7 +44,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         likes:0,
         tags:[],
         likedBy:[],
-
         iName:'',
         iCat:'',
         iRange:'',
@@ -60,11 +57,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         iLang:'',
         iAction:'',
         iCR:0
-
-
       }
 
-       counter:number = 0;
+      counter:number = 0;
        
     saveTags(value:any):void{
       this.newPost.tags[this.counter] = value;
@@ -77,16 +72,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     }
 
     submit(id): void{
-      this.newPost.type=id;
-      this.newPost.text += this.plot + this.characters + this.setting + this.themes;
-      this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
+      this.newPost.type = id;
+      // this.newPost.text += this.plot + this.characters + this.setting + this.themes;
+      // this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
      
-       this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
-
-      // console.log(this.newPost);
-      // console.log(this.newPost.tags);
-
-
+      this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
+      location.reload()
     }
   
   
