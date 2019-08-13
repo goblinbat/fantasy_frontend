@@ -39,7 +39,7 @@ const baseUrl = 'http://localhost:3000'
     SideBarComponent,
     TopBarComponent,
     // ProfileComponent,
-    UpdateUserComponent,
+    // UpdateUserComponent,
     modal,
     UpdateModalComponent
   ],
@@ -78,6 +78,7 @@ const baseUrl = 'http://localhost:3000'
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
+    FormsModule,
     MatButtonModule,
     MatTabsModule,
   ],
