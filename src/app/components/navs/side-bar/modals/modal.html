@@ -30,14 +30,14 @@
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
       
-        <mat-checkbox (click)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
         <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
         <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
         <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
         <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
         <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
         <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-        <mat-checkbox (click)='saveTags("High Fantasy")'>Political</mat-checkbox>
+        <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
 
         <hr>
         <h4>Plot</h4>
@@ -64,14 +64,14 @@
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
       
-        <mat-checkbox (click)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
         <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
         <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
         <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
         <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
         <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
         <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-        <mat-checkbox (click)='saveTags("High Fantasy")'>Political</mat-checkbox>
+        <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
 
         <hr>
         <h4>Plot</h4>
@@ -98,14 +98,14 @@
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
     
         
-        <mat-checkbox (click)="saveTags('High Fantasy')">High Fantasy</mat-checkbox>
+        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Horror")'>Horror</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("High Fantasy")'>Political</mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Political")'>Political</mat-checkbox>
     
         <hr>
 
@@ -164,7 +164,7 @@
     </mat-expansion-panel>
   </mat-accordion>
 
-  <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor">Enter your {{data.id}} here</textarea>
+  <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor" value="Enter your {{data.id}} here"></textarea>
 </mat-dialog-content>
 
 

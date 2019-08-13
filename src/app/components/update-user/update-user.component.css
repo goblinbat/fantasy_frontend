@@ -39,3 +39,17 @@ textarea {
     background-color: var(--primary-dark);
     color: var(--tertiary-lighter)
 }
+
+#textEditor{
+    margin-top:15%;
+}
+#mainForm{
+    background-color: '#ff2088';
+}
+.mat-checkbox{
+    padding:5px;
+}
+
+.mat-form-field{
+    padding: 5px;
+}
