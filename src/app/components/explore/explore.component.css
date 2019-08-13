@@ -8,7 +8,7 @@ h1 {
     margin-top: 3%;
     margin-left: 25%;
     margin-right: 5%;
-    /* margin: auto; */
+    margin: auto;
     padding-left: 2em;
     padding-bottom: 1em;
     border: 1px solid black;
@@ -25,7 +25,7 @@ h1 {
     border-radius: 10px;
     width: 35em;
     background-color: rgb(255, 255, 255, .2);
-    color: var(--primary)
+    color: var(--primary);
 }
 
 span {

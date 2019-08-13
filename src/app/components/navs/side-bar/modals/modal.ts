@@ -70,14 +70,20 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     onNoClick(): void {
       this.dialogRef.close();
     }
-
+    editedText: string;
     submit(id): void{
-      this.newPost.type = id;
-      // this.newPost.text += this.plot + this.characters + this.setting + this.themes;
-      // this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
-     
+      this.newPost.type=id;
+      this.newPost.text += this.plot + this.characters + this.setting + this.themes;
+      this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
+      this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
+      this.newPost.text = this.editedText;
       this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
-      location.reload()
+      location.reload();
+
+      // console.log(this.newPost);
+      // console.log(this.newPost.tags);
+
+
     }
   
   
