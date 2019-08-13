@@ -23,12 +23,12 @@ export class ProfileComponent implements OnInit {
   getPosts() {
     this.postServe.getPosts().subscribe(posts => {
       this.posts = posts;
-      console.log(posts)
+      // console.log(posts)
     })
   }
 
   showPost(clicked: Post) {
-    console.log(clicked)
+    // console.log(clicked)
     const dialogRef = this.dialog.open(viewModal, {
       width: '60%',
       data:{

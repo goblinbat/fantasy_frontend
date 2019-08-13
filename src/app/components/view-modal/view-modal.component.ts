@@ -29,7 +29,7 @@ export class viewModal implements OnInit {
     this.postId = Number(this.route.snapshot.paramMap.get("id"))
     this.posst.getPost(this.postId).subscribe(res => {
       this.data = res; 
-      console.log(this.data)
+      // console.log(this.data)
       if (this.data.type === 'campaign') {
         this.story = false;
         this.campaign = true;
@@ -52,7 +52,7 @@ export class viewModal implements OnInit {
   }
 
   editPost(toEdit) {
-    console.log(toEdit)
+    // console.log(toEdit)
     const dialogRef = this.dialog.open(UpdateModalComponent, {
       width: '60%',
       data: toEdit
