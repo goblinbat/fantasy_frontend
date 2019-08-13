@@ -12,10 +12,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material'
-
+import { MatIconModule, MatRippleModule } from '@angular/material'
+import {MatExpansionModule} from '@angular/material/expansion';
 import { ExploreModule } from './components/explore/explore.module';
 import { ProfileModule } from './components/profile/profile.module';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
@@ -71,6 +73,14 @@ const baseUrl = 'http://localhost:3000'
     MatSidenavModule,
     MatMenuModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatExpansionModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot(), 
+    MatCheckboxModule
+
+
+
   ],
   exports: [
     BrowserAnimationsModule,
@@ -81,6 +91,12 @@ const baseUrl = 'http://localhost:3000'
     FormsModule,
     MatButtonModule,
     MatTabsModule,
+    MatRippleModule,
+    MatExpansionModule,
+ 
+
+    
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
