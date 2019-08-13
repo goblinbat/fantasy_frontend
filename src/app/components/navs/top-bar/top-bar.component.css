@@ -1,3 +1,23 @@
+#topNav{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--tertiary);
+  background-image: url('../../../../assets/old-map.png');
+  font-size: 1.2em;
+}
+
+button {
+  font-size: 1.2em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  color: var(--primary-dark)
+}
+
+button:hover {
+  background-color: var(--tertiary-dark);
+  color: var(--primary-darker)
+}
+
 #loginButton{
   justify-self: end;
 }
@@ -6,8 +26,10 @@
   text-align: right !important;
 }
 
-#topNav{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    
+.title {
+  font-weight: bolder !important;
+}
+
+.log {
+  font-weight: bold !important
 }

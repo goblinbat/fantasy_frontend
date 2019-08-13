@@ -2,23 +2,45 @@
     padding: 1em;
     /* margin-right: 10em; */
     text-align: center;
+    color: var(--primary)
 }
 
-/* .profPostList {
-    text-align: center;
-} */
+button {
+    background-color: var(--tertiary);
+    color: var(--primary);
+}
+
+button:hover {
+    background-color: var(--tertiary-dark);
+    color: var(--primary-dark)
+}
 
 .profilePost {
     /* float: center; */
     margin: auto;
     margin-bottom: .5em;
-    /* margin-left: 25%; */
     padding: 1em;
     text-align: center;
     font-weight: bold;
-    border: 1px solid black;
+    border: 1px solid var(--primary);
     border-radius: 10px;
     width: 35em;
+    background-color: rgb(255, 255, 255, .2);
+    color: var(--primary)
+}
+
+span {
+    margin: .5em;
+    font-size: .8em;
+}
+
+.profilePost a {
+    text-decoration: none;
+    color: var(--secondary-dark);
+}
+
+.profilePost a:hover {
+    color: var(--secondary-darker);
 }
 
 .division {

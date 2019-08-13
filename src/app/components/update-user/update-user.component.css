@@ -1,0 +1,41 @@
+form {
+    color: var(--primary);
+    text-align: center;
+}
+
+input {
+    padding: .5em;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 12em;
+}
+
+textarea {
+    padding: .5em;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 15em;
+}
+
+#submit-btn {
+    background-color: var(--tertiary);
+    color: var(--primary);
+}
+
+#submit-btn:hover {
+    background-color: var(--tertiary-dark);
+    color: var(--primary-dark);
+}
+
+#del-btn {
+    margin: .5em;
+    background-color: var(--primary);
+    color: var(--base)
+}
+
+#del-btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--tertiary-lighter)
+}

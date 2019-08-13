@@ -1,53 +1,55 @@
-<h1 mat-title *ngIf="data">{{data.title}}</h1>
-<h4 *ngIf="data">{{data.userName}}</h4>
-
-<hr>
-
-
-<div mat-content id="container" *ngIf="campaign">
-    <!-- <p>campaign post</p> -->
-    <p>{{data.text}}</p>
-    <br>
-    <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
-    <!-- <br> -->
-    <!-- <span>Likes: {{data.likes}}</span> -->
-</div>
-
-<div mat-content id="container" *ngIf="story">
-    <!-- <p>story post</p> -->
-    <p>{{data.text}}</p>
-    <br>
-    <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
-    <!-- <br> -->
-    <!-- <span>Likes: {{data.likes}}</span>   -->
-</div>
-
-<div mat-content id="container" *ngIf="creature">
-    <!-- <p>Creature post</p> -->
-    <h3>{{data.iName}}</h3>
-    <p>{{data.text}}</p>
-    <p>{{data.iCat}}
-    <p>{{data.iAlign}}</p> 
-    <p>{{data.iCR}}</p>
-    <p>{{data.iRange}}</p>
-    <p>{{data.iThrow}}</p>
-    <p>{{data.iProperties}}</p>
-    <p>{{data.iScores}}</p>
-    <p>{{data.iVuln}}</p>
-    <p>{{data.iResist}}</p>
-    <p>{{data.iImmune}}</p>
-    <p>{{data.iLang}}</p>
-    <p>{{data.iCR}}</p>
-    <br>
-    <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
-    <!-- <br> -->
-    <!-- <span>Likes: {{data.likes}}</span> -->
-</div>
-
-
-<hr>
-
-<div mat-actions>
-    <button mat-button (click)="goBack()">Back</button>
-    <button mat-button *ngIf="data && data.userId === logId" (click)="editPost(data)">Edit</button>
+<div id="viewPost">
+    <h1 mat-title *ngIf="data">{{data.title}}</h1>
+    <h4 *ngIf="data">{{data.userName}}</h4>
+    
+    <hr>
+    
+    
+    <div mat-content id="container" *ngIf="campaign">
+        <!-- <p>campaign post</p> -->
+        <p>{{data.text}}</p>
+        <br>
+        <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
+        <!-- <br> -->
+        <!-- <span>Likes: {{data.likes}}</span> -->
+    </div>
+    
+    <div mat-content id="container" *ngIf="story">
+        <!-- <p>story post</p> -->
+        <p>{{data.text}}</p>
+        <br>
+        <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
+        <!-- <br> -->
+        <!-- <span>Likes: {{data.likes}}</span>   -->
+    </div>
+    
+    <div mat-content id="container" *ngIf="creature">
+        <!-- <p>Creature post</p> -->
+        <h3>{{data.iName}}</h3>
+        <p>{{data.text}}</p>
+        <p>{{data.iCat}}
+        <p>{{data.iAlign}}</p> 
+        <p>{{data.iCR}}</p>
+        <p>{{data.iRange}}</p>
+        <p>{{data.iThrow}}</p>
+        <p>{{data.iProperties}}</p>
+        <p>{{data.iScores}}</p>
+        <p>{{data.iVuln}}</p>
+        <p>{{data.iResist}}</p>
+        <p>{{data.iImmune}}</p>
+        <p>{{data.iLang}}</p>
+        <p>{{data.iCR}}</p>
+        <br>
+        <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
+        <!-- <br> -->
+        <!-- <span>Likes: {{data.likes}}</span> -->
+    </div>
+    
+    
+    <hr>
+    
+    <div mat-actions>
+        <button mat-button id="back-btn" (click)="goBack()">Back</button>
+        <button mat-button id="edit-btn" *ngIf="data && data.userId === logId" (click)="editPost(data)">Edit</button>
+    </div>
 </div>
