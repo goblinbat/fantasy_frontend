@@ -96,10 +96,6 @@ const baseUrl = 'http://localhost:3000'
     MatTabsModule,
     MatRippleModule,
     MatExpansionModule,
- 
-
-    
-
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

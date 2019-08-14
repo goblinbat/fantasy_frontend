@@ -32,6 +32,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+small {
+    font-size: .8em;
+}
+
 button {
     border: none;
     border-radius: 15px;
