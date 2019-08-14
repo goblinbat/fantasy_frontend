@@ -28,9 +28,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     characters:string;
     setting:string;
     themes:string;
-
+    editedText: string;
     panelOpenState = false;
-
+    
    
     constructor(
       public dialogRef: MatDialogRef<modal>,
@@ -42,6 +42,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         text:'',
         title:'',
         likes:0,
+        // time:0,
         tags:[],
         likedBy:[],
         iName:'',
@@ -61,19 +62,25 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
       counter:number = 0;
        
+     
+    
     saveTags(value:any):void{
       this.newPost.tags[this.counter] = value;
       this.counter++;
     }
-        
   
     onNoClick(): void {
       this.dialogRef.close();
     }
 
-    editedText:string;
+ 
     submit(id): void{
       this.newPost.type = id;
+      // setInterval(()=>{
+      //   this.newPost.time = Date.now();
+      // },1);
+      // console.log(this.newPost.time)
+    
    
       this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
       this.newPost.text = this.editedText;

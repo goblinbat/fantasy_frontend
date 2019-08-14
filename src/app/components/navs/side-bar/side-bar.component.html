@@ -2,19 +2,20 @@
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
       [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
       <div id="buttonWrapper">
-        <button mat-button class="side-btn" routerLink="explore">Explore</button>
-        <br/>
-        <button mat-button class="side-btn" routerLink="profile">Profile</button>
-        <br/>
+          <button mat-button class="side-btn" routerLink="explore">Explore</button>
+          <br/>
+          <button mat-button class="side-btn" routerLink="profile">Profile</button>
+          <br/>
         <button mat-button class="side-btn" id="campaignButton" (click)="openDialog('campaign')">+ Campaign</button>
         <button mat-button class="side-btn" id="storyButton"  (click)="openDialog('story')">+ Short Story</button>
         <button mat-button class="side-btn" id="creatureButton"  (click)="openDialog('creature')">+ Creature</button>
+        <br>
         <button mat-button class="side-btn" id="savedButton">Saved Posts</button>
-        <br />
+        <br>
+       
       </div>
 
       <div id="buttonGroup2">
-        <button mat-button class="side-btn">Settings   <img src="../../../../assets/settings.png" width="15px" height="15px"></button>
         <button mat-button class="side-btn" (click)="logMeOut()">Logout</button>
       </div>
     </mat-sidenav>

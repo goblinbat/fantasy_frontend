@@ -27,7 +27,6 @@
       </mat-expansion-panel-header>
 
       <div id="mainForm" *ngIf="data.id === 'campaign'">
-
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
       
@@ -165,7 +164,7 @@
     </mat-expansion-panel>
   </mat-accordion>
 
-  <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor">Enter your {{data.id}} here</textarea>
+  <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor" value="Enter your {{data.id}} here"></textarea>
 </mat-dialog-content>
 
 
