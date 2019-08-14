@@ -30,7 +30,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     themes:string;
     editedText: string;
     panelOpenState = false;
-
+    
    
     constructor(
       public dialogRef: MatDialogRef<modal>,
@@ -42,6 +42,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         text:'',
         title:'',
         likes:0,
+        // time:0,
         tags:[],
         likedBy:[],
         iName:'',
@@ -61,6 +62,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
       counter:number = 0;
        
+     
+    
     saveTags(value:any):void{
       this.newPost.tags[this.counter] = value;
       this.counter++;
@@ -70,6 +73,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       this.dialogRef.close();
     }
 
+<<<<<<< HEAD
     fixText() {
       this.newPost.text = this.newPost.text.split('<p>').join('');
       this.newPost.text = this.newPost.text.split('</p>').join('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
@@ -83,14 +87,23 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       this.fixText()
       // this.newPost.text += this.plot + this.characters + this.setting + this.themes;
       // this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
+=======
+ 
+    submit(id): void{
+      this.newPost.type = id;
+      // setInterval(()=>{
+      //   this.newPost.time = Date.now();
+      // },1);
+      // console.log(this.newPost.time)
+    
+   
+      this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
+      this.newPost.text = this.editedText;
+>>>>>>> 56c7199e4c3c8a6cf63d775c843f80f2e7e092a1
      
       this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
-      location.reload();
-
-      // console.log(this.newPost);
-      // console.log(this.newPost.tags);
-
-
+      
+      location.reload()
     }
   
   

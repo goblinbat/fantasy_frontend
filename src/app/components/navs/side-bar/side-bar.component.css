@@ -13,7 +13,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 130px;
+  min-width: 8em;
+  max-width: 8em;
   width: 12%; 
   background-color: var(--tertiary);
   background-image: url('../../../../assets/old-map.png');
@@ -23,7 +24,7 @@
 }
 
 .side-btn {
-  font-size: 1.2em;
+  font-size: 1em;
   color: var(--primary-dark);
 }
 
