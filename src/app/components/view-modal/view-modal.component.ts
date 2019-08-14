@@ -23,6 +23,10 @@ export class viewModal implements OnInit {
   story = false
   campaign = false
   creature = false
+
+  editable = false
+  which = 0
+  editedCom = ""
   
   constructor (
     private route: ActivatedRoute, 
@@ -77,6 +81,30 @@ export class viewModal implements OnInit {
   makeComment() {
     // console.log(this.newComment)
     this.commentService.createComment(this.postId, this.newComment).subscribe(res => window.location.reload())
+  }
+
+  editComment(com) {
+    this.which = com.id;
+    this.editedCom = com.text;
+    this.editable = true
+  }
+
+  updateCom(id, text) {
+    console.log(text)
+    this.commentService.editComment(id, text).subscribe(res => {
+      this.cancel()
+      console.log(res);
+      window.location.reload();
+    })
+  }
+
+  cancel() {
+    this.which = 0;
+    this.editable = false
+  }
+
+  deleteComment(id) {
+    this.commentService.deleteComment(id).subscribe(res => window.location.reload())
   }
 
 }
