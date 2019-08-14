@@ -33,7 +33,12 @@ body {
 }
 
 small {
-    font-size: .8em;
+    font-size: .75em;
+}
+
+hr {
+    border: 1px solid var(--primary);
+    width: 60%;
 }
 
 button {
@@ -41,4 +46,9 @@ button {
     border-radius: 15px;
     padding: .5em;
     font-size: 1.2em;
+}
+
+.little-btn {
+    font-size: 1em;
+    padding: .35em
 }

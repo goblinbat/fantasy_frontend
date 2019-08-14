@@ -7,12 +7,12 @@ span {
     margin: .5em;
 }
 
-#back-btn {
+.back-btn {
     background-color: var(--secondary-lighter);
     color: var(--primary)
 }
 
-#back-btn:hover {
+.back-btn:hover {
     background-color: var(--secondary-light);
     color: var(--primary-dark)
 }
@@ -23,9 +23,20 @@ span {
     color: var(--primary);
 }
 
-#edit-btn:hover {
+.edit-btn:hover {
     background-color: var(--tertiary-dark);
     color: var(--primary-dark)
+}
+
+.del-btn {
+    margin: .5em;
+    background-color: var(--primary);
+    color: var(--base)
+}
+
+.del-btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--tertiary-lighter)
 }
 
 input {
@@ -49,6 +60,3 @@ input {
     margin-bottom: .5em;
 }
 
-h3 {
-    font-size: 1.3em;
-}

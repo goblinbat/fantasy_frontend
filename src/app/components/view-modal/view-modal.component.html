@@ -59,11 +59,12 @@
     <hr>
     
     <div mat-actions>
-        <button mat-button id="back-btn" (click)="goBack()">Back</button>
+        <button mat-button class="back-btn" (click)="goBack()">Back</button>
         <button mat-button class="edit-btn" *ngIf="data && data.userId === logId" (click)="editPost(data)">Edit</button>
     </div>
 
     <hr>
+    <br>
     <div id="commentSection">
         <!-- new comment input box -->
         <div *ngIf="logId !== -1"> 
@@ -75,8 +76,15 @@
         <div *ngIf="comments">
             <div *ngFor="let comment of comments">
                 <div class="comment">
-                    <h3>{{comment.text}}</h3>
+                    <p *ngIf="editable == false || which != comment.id">{{comment.text}}</p>
+                    <input *ngIf="editable && which == comment.id" value="{{comment.text}}" [(ngModel)]="editedCom"> 
+                    <br *ngIf="editable && which == comment.id">
                     <small>{{comment.userName}}</small>
+                    <br>
+                    <button class="edit-btn little-btn" *ngIf="logId === comment.userId && editable == false" (click)="editComment(comment)">Edit</button>
+                    <button class="back-btn little-btn" *ngIf="logId === comment.userId && editable && which == comment.id" (click)="cancel()">Cancel</button>
+                    <button class="edit-btn little-btn" *ngIf="logId === comment.userId && editable && which == comment.id" (click)="updateCom(comment.id, editedCom)">Save Changes</button>
+                    <button class="del-btn little-btn" *ngIf="logId === comment.userId" (click)="deleteComment(comment.id)">Delete</button>
                 </div>
             </div>
         </div>
