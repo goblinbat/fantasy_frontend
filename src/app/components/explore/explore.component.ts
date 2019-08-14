@@ -10,14 +10,15 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./explore.component.css']
 })
 export class ExploreComponent implements OnInit {
-  posts: any
+  posts: any;
   
   constructor(private postService: PostService, public dialog: MatDialog ) { }
   
   getAllPosts() {
     this.postService.getAllPosts().subscribe(posts => {
       this.posts = posts;
-      // console.log(posts)
+     
+      console.log(posts);
     })
   }
 

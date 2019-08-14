@@ -7,6 +7,7 @@ export class Post {
     text: string;
     tags: Array<string>;
     likes: number;
+    // time:number;
     likedBy: Array<number>;
     image: Array<string>;
     iName: string;
