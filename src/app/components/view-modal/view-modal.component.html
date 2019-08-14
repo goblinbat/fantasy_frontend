@@ -60,6 +60,25 @@
     
     <div mat-actions>
         <button mat-button id="back-btn" (click)="goBack()">Back</button>
-        <button mat-button id="edit-btn" *ngIf="data && data.userId === logId" (click)="editPost(data)">Edit</button>
+        <button mat-button class="edit-btn" *ngIf="data && data.userId === logId" (click)="editPost(data)">Edit</button>
+    </div>
+
+    <hr>
+    <div id="commentSection">
+        <!-- new comment input box -->
+        <div *ngIf="logId !== -1"> 
+            <input  matInput placeholder="Comment" [(ngModel)]="newComment">
+            <br>
+            <button mat-button-id class="edit-btn" (click)="makeComment()">Post Comment</button>
+        </div>
+        <br>
+        <div *ngIf="comments">
+            <div *ngFor="let comment of comments">
+                <div class="comment">
+                    <h3>{{comment.text}}</h3>
+                    <small>{{comment.userName}}</small>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -17,7 +17,7 @@ span {
     color: var(--primary-dark)
 }
 
-#edit-btn {
+.edit-btn {
     margin: .5em;
     background-color: var(--tertiary);
     color: var(--primary);
@@ -26,4 +26,29 @@ span {
 #edit-btn:hover {
     background-color: var(--tertiary-dark);
     color: var(--primary-dark)
+}
+
+input {
+    border: 1px solid var(--primary);
+    border-radius: 15px;
+    padding: .5em;
+    font-size: 1.2em;
+    margin-top: .7em;
+}
+
+.comment {
+    padding: .6em;
+    text-align: center;
+    /* font-weight: bold; */
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255, .2);
+    color: var(--primary);
+    width: 35em;
+    margin: auto;
+    margin-bottom: .5em;
+}
+
+h3 {
+    font-size: 1.3em;
 }

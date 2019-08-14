@@ -1,9 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { MatDialog } from '@angular/material';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
+import { CommentService } from 'src/app/services/comment.service';
 
 @Component({
   selector: 'app-view-modal',
@@ -11,20 +13,30 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
   styleUrls: ['./view-modal.component.css']
 })
 export class viewModal implements OnInit {
+  logId
   postId
   data
-  logId
+  comments
+
+  newComment = ''
+
   story = false
   campaign = false
   creature = false
   
-  constructor (private route: ActivatedRoute, private posst: PostService, private _location: Location, private dialog: MatDialog) {}
+  constructor (
+    private route: ActivatedRoute, 
+    private posst: PostService, 
+    private commentService: CommentService,
+    private _location: Location, 
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     if (localStorage.getItem('userId')) {
       this.logId = Number(localStorage.getItem('userId'))
     } else {
-      this.logId = 0
+      this.logId = -1
     }
     this.postId = Number(this.route.snapshot.paramMap.get("id"))
     this.posst.getPost(this.postId).subscribe(res => {
@@ -43,7 +55,10 @@ export class viewModal implements OnInit {
         this.campaign = false;
         this.creature = true;
       };
-      // console.log(this.data.userId, this.logId, this.postId)
+      this.commentService.getCommentsOnPost(this.postId).subscribe(res => {
+        this.comments = res;
+        console.log(res)
+      })
     });
   };
 
@@ -57,6 +72,11 @@ export class viewModal implements OnInit {
       width: '60%',
       data: toEdit
     });
+  }
+
+  makeComment() {
+    // console.log(this.newComment)
+    this.commentService.createComment(this.postId, this.newComment).subscribe(res => window.location.reload())
   }
 
 }

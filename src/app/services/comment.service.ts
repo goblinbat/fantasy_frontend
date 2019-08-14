@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000/'
+const baseUrl = 'http://localhost:3000'
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +22,13 @@ export class CommentService {
 
   // create comment
   createComment(postId: number, text: any) {
-    return this.http.post(`${baseUrl}/comment/${postId}`, text, {headers: this.setHeader()})
+    console.log(text)
+    return this.http.post(`${baseUrl}/comment/${postId}`, {text:text}, {headers: this.setHeader()})
   }
 
   // update comment
   editComment(id: number, text: any){
-    return this.http.put(`${baseUrl}/comment/${id}`, text, {headers: this.setHeader()})
+    return this.http.put(`${baseUrl}/comment/${id}`, {text:text}, {headers: this.setHeader()})
   }
 
   // delete comment
