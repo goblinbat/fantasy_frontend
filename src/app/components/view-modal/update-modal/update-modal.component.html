@@ -162,7 +162,7 @@
         </mat-expansion-panel>
     </mat-accordion>
               
-    <textarea [(ngModel)]="updatedPost.text" [froalaEditor] id="textEditor" value="data.text">{{data.text}}</textarea>
+    <textarea [(ngModel)]="updatedPost.text" [froalaEditor] id="textEditor" value="this.hold">{{hold}}</textarea>
 </mat-dialog-content>
 
 <div mat-dialog-actions>

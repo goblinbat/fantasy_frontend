@@ -12,7 +12,8 @@
         <p *ngIf="data.iVuln">Setting: {{data.iVuln}}</p>
         <p *ngIf="data.iAction">Themes: {{data.iAction}}</p>
         <br>
-        <p>{{data.text}}</p>
+        <p *ngFor="let para of dataText">{{para}}</p>
+        <!-- <p id="postText"></p> -->
         <br>
         <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
         <!-- <br> -->
@@ -26,7 +27,8 @@
         <p *ngIf="data.iVuln">Setting: {{data.iVuln}}</p>
         <p *ngIf="data.iAction">Themes: {{data.iAction}}</p>
         <br>
-        <p>{{data.text}}</p>
+        <p *ngFor="let para of dataText">{{para}}</p>
+        <!-- <p id="postText"></p> -->
         <br>
         <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
         <!-- <br> -->
@@ -36,7 +38,6 @@
     <div mat-content id="container" *ngIf="creature">
         <!-- <p>Creature post</p> -->
         <h3 *ngIf="data.iName">Name: {{data.iName}}</h3>
-        <p *ngIf="data.text">About: {{data.text}}</p>
         <p *ngIf="data.iCat">Category: {{data.iCat}}</p>
         <p *ngIf="data.iAlign">Alignment: {{data.iAlign}}</p> 
         <p *ngIf="data.iCR">Combat Rating: {{data.iCR}}</p>
@@ -49,6 +50,8 @@
         <p *ngIf="data.iResist">Resistances: {{data.iResist}}</p>
         <p *ngIf="data.iImmune">Immunities: {{data.iImmune}}</p>
         <p *ngIf="data.iLang">Languages: {{data.iLang}}</p>
+        <p *ngFor="let para of dataText">{{para}}</p>
+        <!-- <p id="postText"></p> -->
         <br>
         <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
         <!-- <br> -->
