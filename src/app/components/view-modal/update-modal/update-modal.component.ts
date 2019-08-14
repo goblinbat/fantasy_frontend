@@ -61,12 +61,9 @@ export class UpdateModalComponent implements OnInit {
   }
 
   fixText() {
-    if (this.updatedPost.text !== this.hold) {
-      let editedText = this.updatedPost.text.substring(3,this.updatedPost.text.length-4)
-      this.updatedPost.text = editedText.trim();
-    } else {
-      this.data.text = this.data.text.trim();
-    }
+    this.data.text = this.data.text.split('<p>').join('');
+    this.data.text = this.data.text.split('</p>').join('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
+    this.data.text = this.data.text.split('&nbsp;').join(' ');
   }
 
   updatePost() {
@@ -77,7 +74,7 @@ export class UpdateModalComponent implements OnInit {
 
   ngOnInit() { 
     this.updatedPost = this.data
-    this.hold = this.data.text
+    this.hold = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh').join('<br>')
     // console.log(this.updatedPost)
   }
 

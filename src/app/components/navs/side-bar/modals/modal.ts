@@ -73,17 +73,19 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       this.dialogRef.close();
     }
 
- 
+    fixText() {
+      this.newPost.text = this.newPost.text.split('<p>').join('');
+      this.newPost.text = this.newPost.text.split('</p>').join('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
+      this.newPost.text = this.newPost.text.split('&nbsp;').join(' ');
+    }
+
     submit(id): void{
       this.newPost.type = id;
-      // setInterval(()=>{
-      //   this.newPost.time = Date.now();
-      // },1);
-      // console.log(this.newPost.time)
-    
-   
-      this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
-      this.newPost.text = this.editedText;
+      // this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
+      // this.newPost.text = this.editedText;
+      this.fixText()
+      // this.newPost.text += this.plot + this.characters + this.setting + this.themes;
+      // this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
      
       this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
       

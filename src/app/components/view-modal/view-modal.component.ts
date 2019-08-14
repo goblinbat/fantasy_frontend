@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -13,10 +13,12 @@ import { CommentService } from 'src/app/services/comment.service';
   styleUrls: ['./view-modal.component.css']
 })
 export class viewModal implements OnInit {
+
   logId
   postId
   data
   comments
+  dataText
 
   newComment = ''
 
@@ -59,10 +61,10 @@ export class viewModal implements OnInit {
         this.campaign = false;
         this.creature = true;
       };
-      this.commentService.getCommentsOnPost(this.postId).subscribe(res => {
-        this.comments = res;
-        console.log(res)
-      })
+      this.commentService.getCommentsOnPost(this.postId).subscribe(res => this.comments = res);
+      // document.getElementById("postText").innerHTML = this.data.text;
+      this.dataText = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
+      console.log(this.dataText)
     });
   };
 
