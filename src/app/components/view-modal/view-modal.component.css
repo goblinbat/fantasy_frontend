@@ -50,13 +50,26 @@ input {
 .comment {
     padding: .6em;
     text-align: center;
-    /* font-weight: bold; */
     border: 1px solid var(--primary);
     border-radius: 10px;
     background-color: rgb(255, 255, 255, .2);
     color: var(--primary);
     width: 35em;
     margin: auto;
-    margin-bottom: .5em;
+    margin-bottom: .5em !important;
+}
+
+@media screen and (max-width: 769px) {
+    .comment {
+        margin: auto;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    input {
+        width: 90%;
+        font-size: 1em;
+    }
 }
 

@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav [mode]="width >= 924 ? 'side' : 'over'" opened class="example-sidenav"
+    <mat-sidenav #sidenav [mode]="width >= 924 ? 'side' : 'over'" [(opened)]="opened" class="example-sidenav"
       [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
       <div id="buttonWrapper">
           <button mat-button class="side-btn" routerLink="explore">Explore</button>

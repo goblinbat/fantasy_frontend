@@ -18,7 +18,7 @@ button:hover {
 .profilePost {
     /* float: center; */
     margin: auto;
-    margin-bottom: .5em;
+    margin-bottom: .5em !important;
     padding: 1em;
     text-align: center;
     font-weight: bold;
@@ -46,4 +46,16 @@ span {
 .division {
     width: 60%;
     /* float: left; */
+}
+
+@media screen and (max-width: 769px) {
+    .profPostList {
+        margin: auto;
+        width: 90%;
+    }
+
+    .profilePost {
+        margin: auto;
+        width: 90%;
+    }
 }
