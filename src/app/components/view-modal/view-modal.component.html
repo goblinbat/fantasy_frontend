@@ -1,6 +1,7 @@
 <div id="viewPost">
     <h1 mat-title *ngIf="data">{{data.title}}</h1>
     <h4 *ngIf="data">{{data.userName}}</h4>
+    <img *ngIf="data" src={{data.image}} />
     
     <hr>
     

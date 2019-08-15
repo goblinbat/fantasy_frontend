@@ -18,7 +18,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { ExploreModule } from './components/explore/explore.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { CloudinaryModule } from '@cloudinary/angular-5.x';
+import * as Cloudinary from 'cloudinary-core';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
@@ -28,7 +31,7 @@ import { SideBarComponent } from './components/navs/side-bar/side-bar.component'
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MatDialogModule } from '@angular/material';
-import {modal} from './components/navs/side-bar/modals/modal';
+import { modal } from './components/navs/side-bar/modals/modal';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { viewModal } from './components/view-modal/view-modal.component';
 import { UpdateModalComponent } from './components/view-modal/update-modal/update-modal.component';
@@ -45,6 +48,7 @@ const baseUrl = 'http://localhost:3000'
     // ProfileComponent,
     // UpdateUserComponent,
     modal,
+    FileSelectDirective,
     UpdateModalComponent,
     // AdminComponent
   ],
@@ -63,6 +67,7 @@ const baseUrl = 'http://localhost:3000'
     MatIconModule,
     AppRoutingModule,
     FormsModule,
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,

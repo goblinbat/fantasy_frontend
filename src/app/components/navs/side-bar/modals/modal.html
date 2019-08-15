@@ -164,6 +164,10 @@
   </mat-accordion>
 
   <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor" value="Enter your {{data.id}} here"></textarea>
+  <br />
+  <!-- <form action="" method="post" enctype="multipart/form-data"> -->
+    <input type="file" ng2FileSelect [uploader]="uploader" />
+  <!-- </form> -->
 </mat-dialog-content>
 
 
