@@ -67,7 +67,7 @@ const baseUrl = 'http://localhost:3000'
     MatIconModule,
     AppRoutingModule,
     FormsModule,
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadge-patbrimol', upload_preset: 'unsigned'}),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
