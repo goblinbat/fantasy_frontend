@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -64,7 +64,7 @@ export class viewModal implements OnInit {
       this.commentService.getCommentsOnPost(this.postId).subscribe(res => this.comments = res);
       // document.getElementById("postText").innerHTML = this.data.text;
       this.dataText = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
-      console.log(this.dataText)
+      // console.log(this.dataText)
     });
   };
 
@@ -92,10 +92,10 @@ export class viewModal implements OnInit {
   }
 
   updateCom(id, text) {
-    console.log(text)
+    // console.log(text)
     this.commentService.editComment(id, text).subscribe(res => {
       this.cancel()
-      console.log(res);
+      // console.log(res);
       window.location.reload();
     })
   }

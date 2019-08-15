@@ -26,6 +26,10 @@ const routes: Routes = [
       },
       { path: 'update', loadChildren: () =>
           import ('./components/update-user/update-user.module').then(m => m.UpdateUserModule)
+      },
+      {
+        path: 'admin', loadChildren: () =>
+          import ('./components/admin/admin.module').then(m => m.AdminModule)
       }
     ] 
   },

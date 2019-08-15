@@ -22,7 +22,6 @@ export class CommentService {
 
   // create comment
   createComment(postId: number, text: any) {
-    console.log(text)
     return this.http.post(`${baseUrl}/comment/${postId}`, {text:text}, {headers: this.setHeader()})
   }
 
