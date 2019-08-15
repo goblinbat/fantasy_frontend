@@ -13,5 +13,5 @@
     <br><br>
     <button id="submit-btn" type="submit" (click)="onSubmit()">Submit Changes</button>
     <br>
-    <button id="del-btn" (click)="delete()">Delete Account</button>
+    <button id="del-btn" *ngIf="userId != 1" (click)="delete()">Delete Account</button>
 </form>
