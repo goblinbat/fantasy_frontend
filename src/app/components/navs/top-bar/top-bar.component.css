@@ -33,3 +33,27 @@ button:hover {
 .log {
   font-weight: bold !important
 }
+
+@media screen and (max-width: 769px) {
+  #topNav {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  #topNav {
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 412px){
+  #topNav {
+    font-size: .6em;
+  }
+}
+
+@media screen and (max-width: 300px){
+  #topNav {
+    font-size: .4em;
+  }
+}

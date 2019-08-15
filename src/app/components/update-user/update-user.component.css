@@ -53,3 +53,21 @@ textarea {
 .mat-form-field{
     padding: 5px;
 }
+
+@media screen and (max-width: 370px) {
+    form {
+        width: 99%;
+    }
+
+    input {
+        width: 90% !important;
+        font-size: 1em;
+        padding: .2em;
+    }
+
+    textarea {
+        width: 90% !important;
+        font-size: 1em;
+        padding: .2em;
+    }
+}

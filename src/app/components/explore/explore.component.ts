@@ -15,10 +15,11 @@ export class ExploreComponent implements OnInit {
 
   posts: any;
   searchVal:string;
-  
+  tempPost = [];
+  width = window.innerWidth;
+  break1: boolean
   
   constructor(private postService: PostService, public dialog: MatDialog ) { }
-  
 
   getAllPosts() {
     this.postService.getAllPosts().subscribe(post => {
@@ -26,7 +27,6 @@ export class ExploreComponent implements OnInit {
     })
   }
 
-  
   showPost(clicked: Post) {
     // console.log(clicked)
     const dialogRef = this.dialog.open(viewModal, {
@@ -35,7 +35,6 @@ export class ExploreComponent implements OnInit {
         data: clicked
       }});
   }
-  tempPost = [];
   
   searchPosts(){
     this.postService.getAllPosts().subscribe(post => {
@@ -56,6 +55,9 @@ export class ExploreComponent implements OnInit {
  
   
   ngOnInit() {
+    if (this.width <= 531) {
+      this.break1 = true
+    }
     this.getAllPosts();
   }
  
