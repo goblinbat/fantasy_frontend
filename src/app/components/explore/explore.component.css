@@ -75,3 +75,10 @@ p{
     
 
 }
+.button{
+    background-color: white;
+    box-shadow: 3px 3px black;
+    padding:5px;
+    margin: 5px;
+
+}

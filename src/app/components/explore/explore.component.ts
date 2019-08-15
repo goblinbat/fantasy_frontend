@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { viewModal } from '../view-modal/view-modal.component';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
-import {MatButtonModule} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-explore',

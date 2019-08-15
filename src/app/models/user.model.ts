@@ -1,3 +1,5 @@
+import { Post } from './post.model';
+
 export class User {
     public id?: any;
     public username: string;
@@ -6,4 +8,5 @@ export class User {
     public profilePic: any;
     public friends: User[];
     public liked: number[];
+    public saved: Post[];
 }
