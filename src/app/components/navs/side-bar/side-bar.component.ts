@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {modal} from './modals/modal';
-
  
 @Component({
   selector: 'app-side-bar',
