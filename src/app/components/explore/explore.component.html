@@ -1,12 +1,14 @@
 <h1>Welcome, Adventurers!</h1>
-<!-- <div>
-  <div class="postContainer" *ngFor="let post of posts">
-    <h2>{{post.title}}</h2>
-    <span>{{post.tag}}</span>
-  </div>
-</div> -->
 
-<div  *ngIf="posts !== []; else noposts">
+<div class="search">
+    <input type="search" placeholder="search by title or username" #searchValue/>
+    <button mat-button (click)="searchPosts()">Search</button>
+    <button mat-button (click)="getAllPosts()">Refresh</button>
+</div>
+
+
+
+<div  *ngIf="posts !== null || undefined; else noposts">
     <div *ngFor="let post of posts" class="profPostList">
         <div class="profilePost">
           <mat-card class="z-depth">
