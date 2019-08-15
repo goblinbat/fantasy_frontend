@@ -31,9 +31,13 @@ const routes: Routes = [
         path: 'admin', loadChildren: () =>
           import ('./components/admin/admin.module').then(m => m.AdminModule)
       }
+      // {
+      //   path: 'savedPost', loadChildren: () =>
+      //     import ('./components/saved-posts/saved-posts.component').then(m=>m.s)
+      // }
     ] 
   },
-  // { path: 'profile', component: ProfileComponent},
+  
   // { path: 'update', component: UpdateUserComponent},
 ];
 

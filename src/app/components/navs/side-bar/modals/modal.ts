@@ -93,7 +93,7 @@ export class modal implements OnInit {
     // this.newPost.text += this.newPost.iName + this.newPost.iCat + this.newPost.iRange + this.newPost.iRange + this.newPost.iThrow + this.newPost.iProperties + this.newPost.iAlign + this.newPost.iScores + this.newPost.iVuln + this.newPost.iImmune + this.newPost.iCR;
     console.log(this.newPost.image);
     this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
-    // location.reload();
+    location.reload();
 
     // console.log(this.newPost);
     // console.log(this.newPost.tags);
