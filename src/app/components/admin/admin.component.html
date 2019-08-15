@@ -1,0 +1,21 @@
+<div *ngIf="logId === 1; else hack" id="admin">
+    <h1>Welcome, Admin</h1>
+    <br>
+    <h2>Users</h2>
+    <div *ngFor="let user of users" class="user">
+        <h3 *ngIf="!editable || which != user.id">id {{user.id}} : {{user.username}}</h3>
+        <p *ngIf="!editable || which != user.id">{{user.profile}}</p>
+        <input *ngIf="editable && which == user.id" value="{{user.username}}" [(ngModel)]="editName"> 
+        <br> 
+        <input *ngIf="editable && which == user.id" value="{{user.profile}}" [(ngModel)]="editBio">       
+        <br>
+        <button class="edit-btn little-btn" *ngIf="editable === false" (click)="makeEditable(user)">Edit User</button>
+        <button class="cancel-btn little-btn" *ngIf="editable && which == user.id" (click)="cancel()">Cancel</button>
+        <button class="edit-btn little-btn" *ngIf="editable && which == user.id" (click)="saveChanges(user.id, editName, editBio)">Save Changes</button>
+        <button class="del-btn little-btn" *ngIf="user.id !== 1" (click)="delete(user.id)">Delete User</button>
+    </div>
+</div>
+
+<ng-template #hack>
+    <h1>Redirecting to login</h1>
+</ng-template>

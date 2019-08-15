@@ -6,12 +6,12 @@
     </form>
     <h2>Profile</h2>
     <form>
-        <textarea matInput maxlength=255 value="{{bio}}" name="bio" [(ngModel)]="bio"></textarea>    
+        <textarea matInput value="{{bio}}" name="bio" [(ngModel)]="bio"></textarea>    
     </form>
     
     
     <br><br>
     <button id="submit-btn" type="submit" (click)="onSubmit()">Submit Changes</button>
     <br>
-    <button id="del-btn" (click)="delete()">Delete Account</button>
+    <button id="del-btn" *ngIf="userId != 1" (click)="delete()">Delete Account</button>
 </form>

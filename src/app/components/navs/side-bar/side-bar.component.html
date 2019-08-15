@@ -12,6 +12,8 @@
         <br>
         <button mat-button class="side-btn" id="savedButton">Saved Posts</button>
         <br>
+        <button mat-button *ngIf="userId == 1" class="side-btn" id="adminButton" routerLink="admin">Admin</button>
+        <br>
        
       </div>
 
