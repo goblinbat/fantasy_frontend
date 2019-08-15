@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import {FormControl, FormBuilder,FormGroup} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {modal} from './modals/modal';
+import { MatSidenavContainer } from '@angular/material';
 
  
 @Component({
@@ -12,6 +13,8 @@ import {modal} from './modals/modal';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+  @ViewChild(MatSidenavContainer, {static: false}) sidenavContainer: MatSidenavContainer;
+
   explore: true;
   profile: false;
   // viewPost = false;
@@ -21,6 +24,8 @@ export class SideBarComponent implements OnInit {
   modalID:string;
   name:string = localStorage.getItem('username');
   userId:string = localStorage.getItem('userId');
+
+  width = window.innerWidth;
 
 
   constructor(fb: FormBuilder,private auth : AuthService, private router: Router,public dialog: MatDialog) {
@@ -32,7 +37,10 @@ export class SideBarComponent implements OnInit {
 
   shouldRun = true;
   ngOnInit() {
-    this.isLoggedIn = this.auth.loggedIn
+    this.isLoggedIn = this.auth.loggedIn;
+    // if (this.width <= 924) {
+    //   this.sidenavContainer.close()
+    // }
   }
 
   //modal for campaign, short stories, and creatures
