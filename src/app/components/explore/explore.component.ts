@@ -23,10 +23,7 @@ export class ExploreComponent implements OnInit {
   getAllPosts() {
     this.postService.getAllPosts().subscribe(post => {
       this.posts = post;
-      
-    console.log(this.posts)
     })
-  
   }
 
   
@@ -41,19 +38,20 @@ export class ExploreComponent implements OnInit {
   tempPost = [];
   
   searchPosts(){
-    
-    for(let i = 0;i<this.posts.length;i++){
-      if(this.searchValue.nativeElement.value === this.posts[i].title){
-        this.tempPost.push(this.posts[i]);
+    this.postService.getAllPosts().subscribe(post => {
+      this.posts = post
+      
+      for(let i = 0; i < this.posts.length; i++){
+        if(this.searchValue.nativeElement.value === this.posts[i].title){
+          this.tempPost.push(this.posts[i]);
+        } else if (this.searchValue.nativeElement.value === this.posts[i].userName) {
+          this.tempPost.push(this.posts[i])
+        }
       }
-    }
-   
-    this.posts = this.tempPost;
-    this.tempPost = [];
-    console.log(this.posts)
-   
-
-
+     
+      this.posts = this.tempPost;
+      this.tempPost = [];
+    })
   }
  
   
