@@ -64,6 +64,7 @@ export class UpdateModalComponent implements OnInit {
     this.data.text = this.data.text.split('<p>').join('');
     this.data.text = this.data.text.split('</p>').join('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
     this.data.text = this.data.text.split('&nbsp;').join(' ');
+    this.data.text = this.data.text.split('<br>').join('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
   }
 
   updatePost() {
