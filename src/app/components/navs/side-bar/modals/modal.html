@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Hello, {{data.name}}</h1>
-<hr>
+
 <mat-dialog-content>
   <form class="example-form">
     <mat-form-field class="example-full-width">
@@ -38,8 +38,7 @@
         <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
         <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
         <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
-
-        <hr>
+<br>
         <h4>Plot</h4>
         <mat-form-field id="plotText">
           <textarea matInput placeholder="plot information..." width="100%" [(ngModel)]='this.newPost.iProperties'></textarea>
@@ -73,7 +72,7 @@
         <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
         <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
 
-        <hr>
+        
         <h4>Plot</h4>
         <mat-form-field id="plotText">
           <textarea matInput placeholder="plot information..." width="100%" [(ngModel)]='this.newPost.iProperties'></textarea>
@@ -107,7 +106,7 @@
         <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
         <mat-checkbox  (click)='saveTags("Political")'>Political</mat-checkbox>
     
-        <hr>
+       
 
         <mat-form-field>
           <input [(ngModel)]='newPost.iName' matInput placeholder="creature name">
