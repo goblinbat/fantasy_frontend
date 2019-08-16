@@ -12,6 +12,8 @@
         Title is <strong>required</strong>
       </mat-error>
     </mat-form-field>
+    <p>Add an Image</p>
+    <input type="file" ng2FileSelect [uploader]="uploader" />
   </form>
   <br>
 
@@ -166,7 +168,7 @@
   <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor" value="Enter your {{data.id}} here"></textarea>
   <br />
   <!-- <form action="" method="post" enctype="multipart/form-data"> -->
-    <input type="file" ng2FileSelect [uploader]="uploader" />
+    <!-- <input type="file" ng2FileSelect [uploader]="uploader" /> -->
   <!-- </form> -->
 </mat-dialog-content>
 
