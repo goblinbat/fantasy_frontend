@@ -12,7 +12,6 @@
         </mat-form-field>
     </form>
     <br>
-    
     <mat-accordion>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -23,8 +22,9 @@
                     <i>(optional)</i>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-        
+            
             <div id="mainForm" *ngIf="data.type === 'campaign'">
+                <input type="file" ng2FileSelect [uploader]="uploader" />    
         
                 <h4>Pick tags for your project!</h4>
                 <p>These help other find your project, and help give a brief look at what you project is about!</p>
