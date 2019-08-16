@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
     this.postServe.getPosts().subscribe(posts => {
       this.posts = posts;
       // console.log(posts)
+      this.posts = this.posts.reverse()
     })
   }
 

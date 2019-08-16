@@ -105,6 +105,32 @@ input {
     color: var(--primary-dark)
 }
 
+/* #pagDiv {
+    list-style: none;
+    text-align: center;
+} */
+
+jw-pagination {
+    list-style: none !important;
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary);
+    display: inline;
+}
+
+jw-pagination .pagination {
+    list-style: none !important;
+}
+
+jw-pagination .pagination .page-item {
+    font-weight: bold;
+    color: var(--primary)
+}
+
+jw-pagination ul li {
+    display: inline;
+}
+
 @media screen and (max-width: 769px) {
     .profPostList {
         margin: auto;
