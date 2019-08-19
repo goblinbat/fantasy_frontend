@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   userName: string
   currentUser: any
   bio: string
+  pPic
   posts = []
   page = 1;
   count = 5;
@@ -51,6 +52,7 @@ export class ProfileComponent implements OnInit {
       this.currentUser = data
       // console.log(this.currentUser)
       this.bio = data.profile
+      this.pPic = data.profilePic
     })
     this.getPosts()
   }
