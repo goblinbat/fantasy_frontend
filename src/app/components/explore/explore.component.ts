@@ -15,10 +15,12 @@ export class ExploreComponent implements OnInit {
 
   posts: any;
   searchVal:string;
+  tempPost = [];
+  width = window.innerWidth;
+  break1: boolean
   
   
   constructor(private postService: PostService, public dialog: MatDialog ) { }
-  
 
   getAllPosts() {
     this.postService.getAllPosts().subscribe(post => {
@@ -26,7 +28,6 @@ export class ExploreComponent implements OnInit {
     })
   }
 
-  
   showPost(clicked: Post) {
     // console.log(clicked)
     const dialogRef = this.dialog.open(viewModal, {
@@ -35,7 +36,6 @@ export class ExploreComponent implements OnInit {
         data: clicked
       }});
   }
-  tempPost = [];
   
   searchPosts(){
     this.postService.getAllPosts().subscribe(post => {
@@ -46,8 +46,16 @@ export class ExploreComponent implements OnInit {
           this.tempPost.push(this.posts[i]);
         } else if (this.searchValue.nativeElement.value === this.posts[i].userName) {
           this.tempPost.push(this.posts[i])
-        }
-      }
+        }else if (this.searchValue.nativeElement.value === this.posts[i].type) {
+          this.tempPost.push(this.posts[i])
+    //     }for(let j = 0; j < this.posts.tags.length; j++){
+    //     if (this.searchValue.nativeElement.value === this.posts[i].tags[j]) {
+    //     this.tempPost.push(this.posts[i])
+    //   }
+    // }
+  }
+}
+    
      
       this.posts = this.tempPost;
       this.tempPost = [];
@@ -56,6 +64,9 @@ export class ExploreComponent implements OnInit {
  
   
   ngOnInit() {
+    if (this.width <= 531) {
+      this.break1 = true
+    }
     this.getAllPosts();
   }
  
