@@ -19,7 +19,7 @@ import { ExploreModule } from './components/explore/explore.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as Cloudinary from 'cloudinary-core';
 
@@ -50,7 +50,6 @@ const baseUrl = 'http://localhost:3000'
     // ProfileComponent,
     // UpdateUserComponent,
     modal,
-    FileSelectDirective,
     UpdateModalComponent,
     // AdminComponent,
     // JwPaginationComponent
@@ -70,6 +69,7 @@ const baseUrl = 'http://localhost:3000'
     MatIconModule,
     AppRoutingModule,
     FormsModule,
+    FileUploadModule,
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
     ReactiveFormsModule,
     MatToolbarModule,
@@ -100,6 +100,7 @@ const baseUrl = 'http://localhost:3000'
     MatToolbarModule,
     FormsModule,
     MatCardModule,
+    FileUploadModule,
     MatButtonModule,
     MatTabsModule,
     MatRippleModule,

@@ -31,7 +31,7 @@ export class modal implements OnInit {
   responses: Array<any>;
 
   private uploader: FileUploader;
-  private hasBaseDropZoneOver: boolean = false;
+  private hasDropZoneOver: boolean = false;
 
   plot:string;
   characters:string;
@@ -133,7 +133,7 @@ export class modal implements OnInit {
         } else {
           this.responses.push(fileItem.data.url);
           console.log(this.responses);
-          this.newPost.image = this.responses
+          this.newPost.image = this.responses;
           console.log(this.newPost.image);
         }
       });
@@ -147,11 +147,11 @@ export class modal implements OnInit {
           data: JSON.parse(response)
         }
         );
-        
+
   }
 
   fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
+    this.hasDropZoneOver = e;
   }
   
 }
