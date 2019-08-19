@@ -38,8 +38,10 @@ import { UpdateModalComponent } from './components/view-modal/update-modal/updat
 import { AdminComponent } from './components/admin/admin.component';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { baseUrl } from '../environments/environment.prod'
 
-const baseUrl = 'http://localhost:3000'
+function tokenGetter() {
+  return localStorage.getItem('access_token');}
 
 @NgModule({
   declarations: [
@@ -76,8 +78,7 @@ const baseUrl = 'http://localhost:3000'
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function  tokenGetter() {
-             return     localStorage.getItem('access_token');},
+        tokenGetter: this.tokenGetter(),
         whitelistedDomains: [baseUrl],
         blacklistedRoutes: [`${baseUrl}/auth`]
       }
