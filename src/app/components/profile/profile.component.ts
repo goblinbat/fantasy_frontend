@@ -6,6 +6,7 @@ import { Post } from 'src/app/models/post.model';
 import { MatDialog } from '@angular/material';
 import { viewModal } from '../view-modal/view-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Router } from '@angular/router';
 // import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
   page = 1;
   count = 5;
 
-  constructor(private user: UserService, private postServe: PostService, public dialog: MatDialog) { }
+  constructor(private user: UserService, private postServe: PostService, public dialog: MatDialog, private router: Router) { }
 
   getPosts() {
     this.postServe.getPosts().subscribe(posts => {
@@ -38,6 +39,10 @@ export class ProfileComponent implements OnInit {
       data:{
         data: clicked
       }});
+  }
+
+  goEdit() {
+    this.currentUser ? this.router.navigate(["/splash/update"]) : this.router.navigate(['/auth'])
   }
 
   ngOnInit() {
