@@ -89,9 +89,9 @@ export class UpdateUserComponent implements OnInit {
           this.responses[existingId] = Object.assign(this.responses[existingId], fileItem)
         } else {
           this.responses.push(fileItem.data.url);
-          console.log(this.responses);
+          // console.log(this.responses);
           this.pic = this.responses;
-          console.log(this.pic);
+          // console.log(this.pic);
         }
       });
     };
@@ -113,7 +113,8 @@ export class UpdateUserComponent implements OnInit {
   onSubmit() {
     let data={ user: {
       username: this.userName,
-      profile: this.bio
+      profile: this.bio,
+      pic: this.pic
     }}
     // console.log(data)
     localStorage.setItem('username', this.userName);
