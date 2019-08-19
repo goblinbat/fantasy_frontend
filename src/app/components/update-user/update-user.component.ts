@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, NgZone } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, Input, NgZone } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders} from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-update-user',
@@ -18,6 +19,9 @@ export class UpdateUserComponent implements OnInit {
   private uploader: FileUploader;
   private hasDropOverZone: boolean = false;
 
+  @ViewChild('deleteModall', {static: true}) templateRef: TemplateRef<any>;
+
+  dialogRef
   userName: string
   userId
   // currentUser
@@ -30,7 +34,8 @@ export class UpdateUserComponent implements OnInit {
 
   constructor(
     private user: UserService, 
-    private router: Router, 
+    private router: Router,
+    private dialog: MatDialog, 
     private auth: AuthService,
     private zone: NgZone,
     private cloudinary: Cloudinary) { 
@@ -117,10 +122,20 @@ export class UpdateUserComponent implements OnInit {
     })
   }
 
+  onNoClick() {
+    this.dialogRef.close();
+  }
+
   delete() {
     this.user.deleteUser(this.userId).subscribe(res=>{
       this.auth.logout()
     })
+  }
+
+  deleteModal() {
+    this.dialogRef = this.dialog.open(this.templateRef, {
+      width: '60%',
+    });
   }
 
 }

@@ -17,5 +17,13 @@
     <br><br>
     <button id="submit-btn" type="submit" (click)="onSubmit()">Submit Changes</button>
     <br>
-    <button id="del-btn" *ngIf="userId != 1" (click)="delete()">Delete Account</button>
+    <button class="del-btn" *ngIf="userId != 1" (click)="deleteModal()">Delete Account</button>
 </form>
+
+<ng-template #deleteModall>
+    <div id="deleteModal">
+        <h3 class="modal-title">Are you sure you want to delete your account?</h3>
+        <button class="del-btn" (click)="delete()">Yes, delete</button>
+        <button class="back-btn" (click)="onNoClick()">No, don't delete</button>
+    </div>
+</ng-template>
