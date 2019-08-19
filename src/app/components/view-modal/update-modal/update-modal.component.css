@@ -1,0 +1,29 @@
+#textEditor{
+    margin-top:15%;
+}
+/* #mainForm{
+    background-color: '#ff2088';
+} */
+.mat-checkbox{
+    padding:5px;
+}
+
+.mat-form-field{
+    padding: 5px;
+}
+
+mat-checkbox {
+    margin-left: .4em;
+}
+
+@media screen and (max-width: 460px) {
+    textarea {
+        max-width: 90%;
+        font-size: 1em;
+    }
+
+    input {
+        max-width: 90%;
+        font-size: 1em;
+    }
+}

@@ -105,6 +105,22 @@ input {
     color: var(--primary-dark)
 }
 
+/* #pagDiv {
+    list-style: none;
+    text-align: center;
+} */
+
+.pagination {
+    text-align: center;
+    color: var(--primary);
+}
+
+pagination-controls {
+    /* can't get any styling to work on this... maybe try more later  */
+    color: var(--primary);
+    background-color: var(--secondary)
+}
+
 @media screen and (max-width: 769px) {
     .profPostList {
         margin: auto;

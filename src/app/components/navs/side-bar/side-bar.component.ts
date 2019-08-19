@@ -49,19 +49,26 @@ export class SideBarComponent implements OnInit {
   //modal for campaign, short stories, and creatures
   openDialog(input:string): void {
     this.modalID = input;
-    const dialogRef = this.dialog.open(modal, {
-      width: '60%',
-      data:{
-        id: this.modalID,
-        name: this.name,
-        userId: Number(this.userId),
-      }
-    
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    let dialogRef
+    if (this.width > 460) {
+      dialogRef = this.dialog.open(modal, {
+        width: '60%',
+        data:{
+          id: this.modalID,
+          name: this.name,
+          userId: Number(this.userId),
+        }
+      });
+    } else {
+      dialogRef = this.dialog.open(modal, {
+        width: '95%',
+        data:{
+          id: this.modalID,
+          name: this.name,
+          userId: Number(this.userId),
+        }
+      });
+    }
   }
 
   logMeOut() {

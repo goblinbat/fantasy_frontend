@@ -12,7 +12,7 @@
     <br>
 
     <div  *ngIf="posts.length >= 1; else noposts">
-        <div *ngFor="let post of posts" class="profPostList">
+        <div *ngFor="let post of posts | paginate: { itemsPerPage: count, currentPage: page }" class="profPostList">
             <div class="profilePost">
                 <h2>{{post.title}}</h2>
                 <span *ngFor="let tag of post.tags">#{{tag}} </span>
@@ -22,6 +22,11 @@
             </div>
         </div>
     </div>
-
+    <div class="pagination text-right">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <!-- <div id="pagDiv">
+        <jw-pagination id="pagination" [items]="posts" (changePage)="onChangePage($event)" pageSize="5"></jw-pagination>
+    </div> -->
     <ng-template #noposts>You have not yet made any posts</ng-template>
 </div>
