@@ -1,0 +1,91 @@
+form {
+    color: var(--primary);
+    text-align: center;
+}
+
+input {
+    padding: .5em;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 12em;
+}
+
+textarea {
+    padding: .5em;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 15em;
+}
+
+#submit-btn {
+    background-color: var(--tertiary);
+    color: var(--primary);
+}
+
+#submit-btn:hover {
+    background-color: var(--tertiary-dark);
+    color: var(--primary-dark);
+}
+
+.del-btn {
+    margin: .5em;
+    background-color: var(--primary);
+    color: var(--base)
+}
+
+.del-btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--tertiary-lighter)
+}
+
+.back-btn {
+    background-color: var(--secondary-lighter);
+    color: var(--primary)
+}
+
+.back-btn:hover {
+    background-color: var(--secondary-light);
+    color: var(--primary-dark)
+}
+
+#textEditor{
+    margin-top:15%;
+}
+#mainForm{
+    background-color: '#ff2088';
+}
+.mat-checkbox{
+    padding:5px;
+}
+
+.mat-form-field{
+    padding: 5px;
+}
+
+.modal-title {
+    color: var(--primary);
+}
+
+#deleteModal {
+    text-align: center;
+}
+
+@media screen and (max-width: 370px) {
+    form {
+        width: 99%;
+    }
+
+    input {
+        width: 90% !important;
+        font-size: 1em;
+        padding: .2em;
+    }
+
+    textarea {
+        width: 90% !important;
+        font-size: 1em;
+        padding: .2em;
+    }
+}

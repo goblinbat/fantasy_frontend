@@ -1,0 +1,32 @@
+<div id="profile">
+    <!-- put profile pic here -->
+    <h1>{{userName}}</h1>
+    <p *ngIf="bio else nobio">{{bio}}</p>
+    <ng-template #nobio>No profile available</ng-template>
+
+    <br><br><br>
+    <button (click)="goEdit()">Edit</button>
+
+    <br>
+    <hr class="division">
+    <br>
+
+    <div  *ngIf="posts.length >= 1; else noposts">
+        <div *ngFor="let post of posts | paginate: { itemsPerPage: count, currentPage: page }" class="profPostList">
+            <div class="profilePost">
+                <h2>{{post.title}}</h2>
+                <span *ngFor="let tag of post.tags">#{{tag}} </span>
+                <br><br>
+                <!-- <a (click)="showPost(post)">View Post</a> -->
+                <a routerLink="/splash/post/{{post.id}}">View Post</a>
+            </div>
+        </div>
+    </div>
+    <div class="pagination text-right">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <!-- <div id="pagDiv">
+        <jw-pagination id="pagination" [items]="posts" (changePage)="onChangePage($event)" pageSize="5"></jw-pagination>
+    </div> -->
+    <ng-template #noposts>You have not yet made any posts</ng-template>
+</div>

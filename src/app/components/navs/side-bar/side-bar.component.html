@@ -1,0 +1,41 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="width >= 924 ? 'side' : 'over'" [(opened)]="opened" class="example-sidenav"
+      [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
+      <div id="buttonWrapper">
+          <button mat-button class="side-btn" routerLink="explore">Explore</button>
+          <br/>
+          <button mat-button class="side-btn" routerLink="profile">Profile</button>
+          <br/>
+        <button mat-button class="side-btn" id="campaignButton" (click)="openDialog('campaign')">+ Campaign</button>
+        <button mat-button class="side-btn" id="storyButton"  (click)="openDialog('story')">+ Short Story</button>
+        <button mat-button class="side-btn" id="creatureButton"  (click)="openDialog('creature')">+ Creature</button>
+        <br>
+        <button mat-button class="side-btn" id="savedButton">Saved Posts</button>
+        <br>
+        <button mat-button *ngIf="userId == 1" class="side-btn" id="adminButton" routerLink="admin">Admin</button>
+        <br>
+      </div>
+
+      <div id="buttonGroup2">
+        <button mat-button class="side-btn" (click)="logMeOut()">Logout</button>
+      </div>
+    </mat-sidenav>
+    
+    <mat-sidenav-content class="hamburger" [formGroup]="options">
+      <mat-toolbar>
+        <button type="button" aria-label="sidenav toggle" mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon> <img src="../../../../assets/menu.png" width="20em" height="20em"> </mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <div id="content">
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<footer>
+    <p>{{title}} &copy; Patrick Bassett, Brian Doan, and Molly Hopper</p>
+</footer>
+  
+  

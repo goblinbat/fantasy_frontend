@@ -1,0 +1,52 @@
+.body {
+    background-color: var(--base);
+    background-image: url(../../../assets/old-map.png);
+    height: 95vh;
+    margin-bottom: -60vh
+}
+
+div {
+    /* margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%; */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+#signup {
+    /* margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+button {
+    margin: auto;
+}
+
+.submit-btn {
+    background-color: var(--secondary)
+}
+
+.submit-btn :hover {
+    background-color: var(--secondary-dark)
+}
+
+.explore {
+    /* margin-left: 45%; */
+    margin: auto;
+    width: 9em;
+    background-color: var(--accent)    
+}
+
+.explore:hover {
+    background-color: var(--accent-dark)
+}

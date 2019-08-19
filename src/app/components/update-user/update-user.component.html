@@ -1,0 +1,29 @@
+<form>
+    <h1>Edit Profile</h1>
+    <h2>Username</h2>
+    <form>
+        <input matInput value="{{userName}}" name="userName" [(ngModel)]="userName">
+    </form>
+    <h2>Profile Picture</h2>
+    <form>
+        <input type="file" ng2FileSelect [uploader]="uploader" />
+    </form>
+    <h2>Profile</h2>
+    <form>
+        <textarea matInput value="{{bio}}" name="bio" [(ngModel)]="bio"></textarea>    
+    </form>
+    
+    
+    <br><br>
+    <button id="submit-btn" type="submit" (click)="onSubmit()">Submit Changes</button>
+    <br>
+    <button class="del-btn" *ngIf="userId != 1" (click)="deleteModal()">Delete Account</button>
+</form>
+
+<ng-template #deleteModall>
+    <div id="deleteModal">
+        <h3 class="modal-title">Are you sure you want to delete your account?</h3>
+        <button class="del-btn" (click)="delete()">Yes, delete</button>
+        <button class="back-btn" (click)="onNoClick()">No, don't delete</button>
+    </div>
+</ng-template>

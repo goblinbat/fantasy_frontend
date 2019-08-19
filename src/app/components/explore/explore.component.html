@@ -1,0 +1,45 @@
+<h1>Welcome, Adventurers!</h1>
+
+<div class="search">
+    <input type="search" placeholder="search by title or username" #searchValue/>
+    <button mat-button id="search-btn" (click)="searchPosts()">Search</button>
+    <button mat-button id="refresh-btn" (click)="getAllPosts()">Refresh</button>
+</div>
+
+
+
+<div  *ngIf="posts !== null || undefined; else noposts">
+    <div *ngFor="let post of posts | paginate: { itemsPerPage: count, currentPage: page }" class="profPostList">
+        <div class="profilePost">
+          <mat-card class="z-depth">
+            <mat-card-header >
+              <mat-card-title>{{post.userName}} - {{post.createdAt.substring(5,10)}}</mat-card-title>
+             
+              <div class="likes">
+                <img src="../../../assets/likes.png" width="32px" >
+                <p *ngIf="post.likes == null || undefined" style='float: right;'>0</p>
+                <p *ngIf="post.likes != null || undefined" style='float: right;'>{{post.likes}}</p>
+              </div>
+            </mat-card-header>
+              <mat-card-content>
+                <div class="title">
+                  <h3>{{post.title}} </h3>
+                </div>
+                <span *ngFor="let tag of post.tags">#{{tag}} </span>
+              </mat-card-content>
+              <!-- <a (click)="showPost(post)">View Post</a> -->
+              
+              <a routerLink="/splash/post/{{post.id}}">View Post</a>
+           
+          </mat-card>  
+        </div>
+    </div>
+    <div class="pagination text-right">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <!-- <div id="pagDiv">
+        <jw-pagination id="pagination" [items]="posts" (changePage)="onChangePage($event)" pageSize="5"></jw-pagination>
+    </div> -->
+</div>
+
+<ng-template #noposts>No posts have been made yet</ng-template>

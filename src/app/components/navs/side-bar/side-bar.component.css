@@ -1,0 +1,67 @@
+.example-container {
+  position: absolute;
+  top: 8%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* width: 20em; */
+  background-color: var(--base);
+  background-image: url('../../../../assets/old-map.png')
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8em;
+  max-width: 8em;
+  width: 12%; 
+  background-color: var(--tertiary);
+  background-image: url('../../../../assets/old-map.png');
+  padding-top: 1em;
+  /* padding-right: 1em; */
+  /* background-color: whitesmoke; */
+}
+
+.side-btn {
+  font-size: 1em;
+  color: var(--primary-dark);
+}
+
+.side-btn:hover {
+  color: var(--primary-darker);
+  background-color: var(--tertiary-dark)
+}
+
+#content {
+  padding: 2em;
+}
+
+#buttonGroup2{
+  position: absolute;
+  bottom: 0;
+}
+
+.hamburger button{
+  position: absolute;
+  background-color: var(--tertiary);
+  background-image: url('../../../../assets/old-map.png');
+  height: 6.5%;
+}
+
+.mat-toolbar {
+  background-color: var(--tertiary);
+  background-image: url('../../../../assets/old-map.png');
+}
+
+mat-tab-group {
+  margin-left: 4.5vw;
+}
+
+footer {
+  margin-top: 56vh;
+  background-color: var(--tertiary);
+  background-image: url('../../../../assets/old-map.png');
+  text-align: center;
+  padding: 1em;
+}

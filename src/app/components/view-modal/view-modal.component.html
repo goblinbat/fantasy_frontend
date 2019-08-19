@@ -1,0 +1,96 @@
+<div id="viewPost">
+    <h1 mat-title *ngIf="data">{{data.title}}</h1>
+    <h4 *ngIf="data">{{data.userName}}</h4>
+    <img *ngIf="data" src={{data.image}} />
+    
+    <hr>
+    
+    
+    <div mat-content id="container" *ngIf="campaign">
+        <p *ngIf="data.iProperties">Plot Summary: {{data.iProperties}}</p>
+        <p *ngIf="data.iScores">Characters: {{data.iScores}}</p>
+        <p *ngIf="data.iVuln">Setting: {{data.iVuln}}</p>
+        <p *ngIf="data.iAction">Themes: {{data.iAction}}</p>
+        <br>
+        <p *ngFor="let para of dataText">{{para}}</p>
+        <br>
+        <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
+        <!-- <br> -->
+        <!-- <span>Likes: {{data.likes}}</span> -->
+    </div>
+    
+    <div mat-content id="container" *ngIf="story">
+        <p *ngIf="data.iProperties">Plot Summary: {{data.iProperties}}</p>
+        <p *ngIf="data.iScores">Characters: {{data.iScores}}</p>
+        <p *ngIf="data.iVuln">Setting: {{data.iVuln}}</p>
+        <p *ngIf="data.iAction">Themes: {{data.iAction}}</p>
+        <br>
+        <p *ngFor="let para of dataText">{{para}}</p>
+        <br>
+        <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
+        <!-- <br> -->
+        <!-- <span>Likes: {{data.likes}}</span>   -->
+    </div>
+    
+    <div mat-content id="container" *ngIf="creature">
+        <h3 *ngIf="data.iName">Name: {{data.iName}}</h3>
+        <p *ngIf="data.iCat">Category: {{data.iCat}}</p>
+        <p *ngIf="data.iAlign">Alignment: {{data.iAlign}}</p> 
+        <p *ngIf="data.iCR">Combat Rating: {{data.iCR}}</p>
+        <p *ngIf="data.iRange">Range (in feet): {{data.iRange}}</p>
+        <p *ngIf="data.iThrow">Saving Throws: {{data.iThrow}}</p>
+        <p *ngIf="data.iProperties">Properties: {{data.iProperties}}</p>
+        <p *ngIf="data.iAction">Actions: {{data.iAction}}</p>
+        <p *ngIf="data.iScores">Ability Scores: {{data.iScores}}</p>
+        <p *ngIf="data.iVuln">Vulnerabilities: {{data.iVuln}}</p>
+        <p *ngIf="data.iResist">Resistances: {{data.iResist}}</p>
+        <p *ngIf="data.iImmune">Immunities: {{data.iImmune}}</p>
+        <p *ngIf="data.iLang">Languages: {{data.iLang}}</p>
+
+        <p *ngFor="let para of dataText">{{para}}</p>
+        <br>
+        <span *ngFor="let tag of data.tags"> #{{tag}} </span>  
+        <!-- <br> -->
+        <!-- <span>Likes: {{data.likes}}</span> -->
+    </div>
+    
+    
+    <hr>
+    
+    <div mat-actions>
+        <button mat-button class="back-btn" (click)="goBack()">Back</button>
+        <button mat-button class="edit-btn" *ngIf="data && data.userId === logId || logId === 1" (click)="editPost(data)">Edit</button>
+    </div>
+
+    <hr>
+    <br>
+    <div id="commentSection">
+        <div *ngIf="logId !== -1"> 
+            <input  matInput placeholder="Comment" [(ngModel)]="newComment">
+            <br>
+            <button mat-button-id class="edit-btn" (click)="makeComment()">Post Comment</button>
+        </div>
+        <br>
+        <div *ngIf="comments">
+            <div *ngFor="let comment of comments | paginate: { itemsPerPage: count, currentPage: page }">
+                <div class="comment">
+                    <p *ngIf="editable == false || which != comment.id">{{comment.text}}</p>
+                    <input *ngIf="editable && which == comment.id" value="{{comment.text}}" [(ngModel)]="editedCom"> 
+                    <br *ngIf="editable && which == comment.id">
+                    <small>{{comment.userName}}</small>
+                    <br>
+                    <button class="edit-btn little-btn" *ngIf="logId === comment.userId && editable == false || logId === 1 && editable == false" (click)="editComment(comment)">Edit</button>
+                    <button class="back-btn little-btn" *ngIf="logId === comment.userId && editable && which == comment.id || logId === 1 && editable && which == comment.id" (click)="cancel()">Cancel</button>
+                    <button class="edit-btn little-btn" *ngIf="logId === comment.userId && editable && which == comment.id || logId === 1 && editable && which == comment.id" (click)="updateCom(comment.id, editedCom)">Save Changes</button>
+                    <button class="del-btn little-btn" *ngIf="logId === comment.userId || logId === 1" (click)="deleteComment(comment.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="pagination text-right">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+        <!-- <div id="pagDiv">
+            <jw-pagination id="pagination" [items]="comments" (changePage)="onChangePage($event)" pageSize="5"></jw-pagination>
+        </div> -->
+    </div>
+</div>
