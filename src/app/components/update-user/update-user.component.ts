@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-update-user',
@@ -10,6 +11,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
+  @ViewChild('deleteModall', {static: true}) templateRef: TemplateRef<any>;
+
+  dialogRef
   userName: string
   userId
   // currentUser
@@ -19,7 +23,7 @@ export class UpdateUserComponent implements OnInit {
   //   desc: ''
   // }
   
-  constructor(private user: UserService, private router: Router, private auth: AuthService) { }
+  constructor(private user: UserService, private router: Router, private auth: AuthService, private dialog: MatDialog) { }
   
   ngOnInit() {
     this.userName = localStorage.getItem('username');
@@ -43,10 +47,20 @@ export class UpdateUserComponent implements OnInit {
     })
   }
 
+  onNoClick() {
+    this.dialogRef.close();
+  }
+
   delete() {
     this.user.deleteUser(this.userId).subscribe(res=>{
       this.auth.logout()
     })
+  }
+
+  deleteModal() {
+    this.dialogRef = this.dialog.open(this.templateRef, {
+      width: '60%',
+    });
   }
 
 }
