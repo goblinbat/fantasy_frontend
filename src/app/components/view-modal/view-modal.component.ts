@@ -6,6 +6,7 @@ import { PostService } from 'src/app/services/post.service';
 import { MatDialog } from '@angular/material';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
 import { CommentService } from 'src/app/services/comment.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-view-modal',
@@ -14,6 +15,8 @@ import { CommentService } from 'src/app/services/comment.service';
 })
 export class viewModal implements OnInit {
   width = window.innerWidth;
+  page = 1;
+  count = 5;
 
   logId
   postId
@@ -117,5 +120,4 @@ export class viewModal implements OnInit {
   deleteComment(id) {
     this.commentService.deleteComment(id).subscribe(res => window.location.reload())
   }
-
 }

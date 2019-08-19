@@ -110,25 +110,15 @@ input {
     text-align: center;
 } */
 
-jw-pagination {
-    list-style: none !important;
+.pagination {
     text-align: center;
-    font-weight: bold;
     color: var(--primary);
-    display: inline;
 }
 
-jw-pagination .pagination {
-    list-style: none !important;
-}
-
-jw-pagination .pagination .page-item {
-    font-weight: bold;
-    color: var(--primary)
-}
-
-jw-pagination ul li {
-    display: inline;
+pagination-controls {
+    /* can't get any styling to work on this... maybe try more later  */
+    color: var(--primary);
+    background-color: var(--secondary)
 }
 
 @media screen and (max-width: 769px) {

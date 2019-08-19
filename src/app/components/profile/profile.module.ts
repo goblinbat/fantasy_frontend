@@ -4,12 +4,14 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 import { ProfileComponent } from './profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  declarations: [ProfileComponent, JwPaginationComponent],
+  declarations: [ProfileComponent],
   imports: [
     CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class ProfileModule { }

@@ -5,6 +5,7 @@ import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import {MatButtonModule} from '@angular/material/button';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-explore',
@@ -19,7 +20,8 @@ export class ExploreComponent implements OnInit {
   tempPost = [];
   width = window.innerWidth;
   break1: boolean
-  page
+  page = 1;
+  count = 5;
   
   constructor(private postService: PostService, public dialog: MatDialog ) { }
 
@@ -55,10 +57,6 @@ export class ExploreComponent implements OnInit {
       this.tempPost = [];
     })
   }
-
-  onChangePage(newPage) {
-    this.page = newPage
-  } 
   
   ngOnInit() {
     if (this.width <= 531) {

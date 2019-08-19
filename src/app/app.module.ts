@@ -37,6 +37,7 @@ import { viewModal } from './components/view-modal/view-modal.component';
 import { UpdateModalComponent } from './components/view-modal/update-modal/update-modal.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const baseUrl = 'http://localhost:3000'
 
@@ -88,10 +89,8 @@ const baseUrl = 'http://localhost:3000'
     MatExpansionModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(), 
-    MatCheckboxModule
-
-
-
+    MatCheckboxModule,
+    NgxPaginationModule
   ],
   exports: [
     BrowserAnimationsModule,

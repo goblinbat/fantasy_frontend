@@ -8,14 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as Cloudinary from 'cloudinary-core';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  declarations: [viewModal, JwPaginationComponent],
+  declarations: [viewModal],
   imports: [
     CommonModule,
     ViewRoutingModule,
     FormsModule,
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
+    NgxPaginationModule
   ]
 })
 export class viewModule { }

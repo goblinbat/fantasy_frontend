@@ -9,7 +9,7 @@
 
 
 <div  *ngIf="posts !== null || undefined; else noposts">
-    <div *ngFor="let post of page" class="profPostList">
+    <div *ngFor="let post of posts | paginate: { itemsPerPage: count, currentPage: page }" class="profPostList">
         <div class="profilePost">
           <mat-card class="z-depth">
             <mat-card-header >
@@ -33,6 +33,9 @@
            
           </mat-card>  
         </div>
+    </div>
+    <div class="pagination text-right">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
     <!-- <div id="pagDiv">
         <jw-pagination id="pagination" [items]="posts" (changePage)="onChangePage($event)" pageSize="5"></jw-pagination>
