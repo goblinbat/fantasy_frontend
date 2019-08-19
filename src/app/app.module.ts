@@ -40,8 +40,17 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { baseUrl } from '../environments/environment.prod'
 
-function tokenGetter() {
-  return localStorage.getItem('access_token');}
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
+const jwt = JwtModule.forRoot({
+  config: {
+    tokenGetter: tokenGetter,
+    whitelistedDomains: [baseUrl],
+    blacklistedRoutes: [`${baseUrl}/auth`]
+  }
+})
 
 @NgModule({
   declarations: [
@@ -76,13 +85,7 @@ function tokenGetter() {
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: this.tokenGetter(),
-        whitelistedDomains: [baseUrl],
-        blacklistedRoutes: [`${baseUrl}/auth`]
-      }
-    }),
+    jwt,
     MatSidenavModule,
     MatMenuModule,
     MatDialogModule,
