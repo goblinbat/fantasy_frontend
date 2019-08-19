@@ -5,6 +5,7 @@ import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/app/models/post.model';
 import { MatDialog } from '@angular/material';
 import { viewModal } from '../view-modal/view-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -17,6 +18,8 @@ export class ProfileComponent implements OnInit {
   currentUser: any
   bio: string
   posts = []
+  page = 1;
+  count = 5;
 
   constructor(private user: UserService, private postServe: PostService, public dialog: MatDialog) { }
 
@@ -24,6 +27,7 @@ export class ProfileComponent implements OnInit {
     this.postServe.getPosts().subscribe(posts => {
       this.posts = posts;
       // console.log(posts)
+      this.posts = this.posts.reverse()
     })
   }
 

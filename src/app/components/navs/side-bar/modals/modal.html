@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Hello, {{data.name}}</h1>
 
-<mat-dialog-content>
+<mat-dialog-content id="modal">
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Project Title" [formControl]="emailFormControl"
@@ -16,7 +16,7 @@
     <input type="file" ng2FileSelect [uploader]="uploader" />
   </form>
   <br>
-
+  
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -27,19 +27,21 @@
           <i>(optional)</i>
         </mat-panel-description>
       </mat-expansion-panel-header>
-
+      
       <div id="mainForm" *ngIf="data.id === 'campaign'">
+        <input type="file" ng2FileSelect [uploader]="uploader" />
+
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
       
-        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
+        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk </mat-checkbox>
         <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
+        <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Political")'>Political </mat-checkbox>
         <br>
         <h4>Plot</h4>
         <mat-form-field id="plotText">
@@ -61,18 +63,19 @@
       </div>
 
       <div id="mainForm" *ngIf="data.id === 'story'">
+        <input type="file" ng2FileSelect [uploader]="uploader" />
 
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
       
-        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
+        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Low Fantasy")'>Low Fantasy </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Sci-fi")'>Sci-fi </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Steampunk")'>Steampunk </mat-checkbox>
         <mat-checkbox (click)='saveTags("Horror")'>Horror</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-        <mat-checkbox (click)='saveTags("Political")'>Political</mat-checkbox>
+        <mat-checkbox (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Action/Adventure")'>Action/Adventure </mat-checkbox>
+        <mat-checkbox (click)='saveTags("Political")'>Political </mat-checkbox>
 
         
         <h4>Plot</h4>
@@ -95,18 +98,20 @@
       </div>
 
       <div id="mainForm" *ngIf="data.id === 'creature'">
+        <input type="file" ng2FileSelect [uploader]="uploader" />
+
         <h4>Pick tags for your project!</h4>
         <p>These help other find your project, and help give a brief look at what you project is about!</p>
     
         
-        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("Low Fantasy")'>Low Fantasy</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("Sci-fi")'>Sci-fi</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("Steampunk")'>Steampunk</mat-checkbox>
+        <mat-checkbox (click)='saveTags("High Fantasy")'>High Fantasy </mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Low Fantasy")'>Low Fantasy </mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Sci-fi")'>Sci-fi </mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Steampunk")'>Steampunk </mat-checkbox>
         <mat-checkbox  (click)='saveTags("Horror")'>Horror</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure</mat-checkbox>
-        <mat-checkbox  (click)='saveTags("Political")'>Political</mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Mystery/Intrigue")'>Mystery/Intrigue </mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Action/Adventure")'>Action/Adventure </mat-checkbox>
+        <mat-checkbox  (click)='saveTags("Political")'>Political </mat-checkbox>
     
        
 
@@ -115,7 +120,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input [(ngModel)]='newPost.iCat' matInput placeholder="Category (beast,undead, humanoid, etc)">
+          <input [(ngModel)]='newPost.iCat' matInput placeholder="Category (beast, undead, humanoid, etc)">
         </mat-form-field>
 
         <mat-form-field>
@@ -129,7 +134,7 @@
         <br>
 
         <mat-form-field>
-          <textarea [(ngModel)]='newPost.iProperties' matInput placeholder="creature properties (racial or class)"></textarea>
+          <textarea [(ngModel)]='newPost.iProperties' matInput placeholder="species properties"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -141,13 +146,13 @@
         </mat-form-field>
 
         <mat-form-field>
-          <textarea [(ngModel)]='newPost.iResist' matInput placeholder="creature resistances"></textarea>
+          <textarea [(ngModel)]='newPost.iResist' matInput placeholder="resistances"></textarea>
         </mat-form-field>
 
         <br>
 
         <mat-form-field>
-          <textarea [(ngModel)]='newPost.iImmune' matInput placeholder="creature immunities"></textarea>
+          <textarea [(ngModel)]='newPost.iImmune' matInput placeholder="immunities"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -164,12 +169,9 @@
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-
+  <br>
   <textarea [(ngModel)]="newPost.text" [froalaEditor] id="textEditor" value="Enter your {{data.id}} here"></textarea>
-  <br />
-  <!-- <form action="" method="post" enctype="multipart/form-data"> -->
-    <!-- <input type="file" ng2FileSelect [uploader]="uploader" /> -->
-  <!-- </form> -->
+  <br>
 </mat-dialog-content>
 
 

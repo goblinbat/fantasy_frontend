@@ -6,6 +6,7 @@ import { PostService } from 'src/app/services/post.service';
 import { MatDialog } from '@angular/material';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
 import { CommentService } from 'src/app/services/comment.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-view-modal',
@@ -13,6 +14,9 @@ import { CommentService } from 'src/app/services/comment.service';
   styleUrls: ['./view-modal.component.css']
 })
 export class viewModal implements OnInit {
+  width = window.innerWidth;
+  page = 1;
+  count = 5;
 
   logId
   postId
@@ -61,10 +65,11 @@ export class viewModal implements OnInit {
         this.campaign = false;
         this.creature = true;
       };
-      this.commentService.getCommentsOnPost(this.postId).subscribe(res => this.comments = res);
-      // document.getElementById("postText").innerHTML = this.data.text;
+      this.commentService.getCommentsOnPost(this.postId).subscribe(res => {
+        this.comments = res
+        this.comments = this.comments.reverse()
+      });
       this.dataText = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
-      // console.log(this.dataText)
     });
   };
 
@@ -73,11 +78,18 @@ export class viewModal implements OnInit {
   }
 
   editPost(toEdit) {
-    // console.log(toEdit)
-    const dialogRef = this.dialog.open(UpdateModalComponent, {
-      width: '60%',
-      data: toEdit
-    });
+    let dialogRef
+    if (this.width > 460) {
+      dialogRef = this.dialog.open(UpdateModalComponent, {
+        width: '60%',
+        data: toEdit
+      });
+    } else {
+      dialogRef = this.dialog.open(UpdateModalComponent, {
+        width: '95%',
+        data: toEdit
+      });
+    }
   }
 
   makeComment() {
@@ -108,5 +120,4 @@ export class viewModal implements OnInit {
   deleteComment(id) {
     this.commentService.deleteComment(id).subscribe(res => window.location.reload())
   }
-
 }

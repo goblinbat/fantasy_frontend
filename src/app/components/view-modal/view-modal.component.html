@@ -72,7 +72,7 @@
         </div>
         <br>
         <div *ngIf="comments">
-            <div *ngFor="let comment of comments">
+            <div *ngFor="let comment of comments | paginate: { itemsPerPage: count, currentPage: page }">
                 <div class="comment">
                     <p *ngIf="editable == false || which != comment.id">{{comment.text}}</p>
                     <input *ngIf="editable && which == comment.id" value="{{comment.text}}" [(ngModel)]="editedCom"> 
@@ -86,5 +86,11 @@
                 </div>
             </div>
         </div>
+        <div class="pagination text-right">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+        <!-- <div id="pagDiv">
+            <jw-pagination id="pagination" [items]="comments" (changePage)="onChangePage($event)" pageSize="5"></jw-pagination>
+        </div> -->
     </div>
 </div>
