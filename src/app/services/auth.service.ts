@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
-
-const baseUrl = 'http://localhost:3000'
+import { baseUrl } from '../../environments/environment.prod'
 
 @Injectable({
 	providedIn: 'root'
