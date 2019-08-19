@@ -7,7 +7,6 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
 import { FormsModule } from '@angular/forms';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as Cloudinary from 'cloudinary-core';
-// import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({

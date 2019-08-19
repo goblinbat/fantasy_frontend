@@ -22,7 +22,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as Cloudinary from 'cloudinary-core';
-
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth.service';
@@ -36,7 +35,6 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { viewModal } from './components/view-modal/view-modal.component';
 import { UpdateModalComponent } from './components/view-modal/update-modal/update-modal.component';
 import { AdminComponent } from './components/admin/admin.component';
-// import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { baseUrl } from '../environments/environment.prod'
 
@@ -63,7 +61,6 @@ const jwt = JwtModule.forRoot({
     modal,
     UpdateModalComponent,
     // AdminComponent,
-    // JwPaginationComponent
   ],
   entryComponents:[
     modal,
