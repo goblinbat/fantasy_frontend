@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, NgZone } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders} from 'ng2-file-upload';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,16 +12,30 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
+  @Input()
+  responses: Array<any>;
+
+  private uploader: FileUploader;
+  private hasDropOverZone: boolean = false;
+
   userName: string
   userId
   // currentUser
   bio: string
+  pic: any
   // update = {
   //   username: '',
   //   desc: ''
   // }
-  
-  constructor(private user: UserService, private router: Router, private auth: AuthService) { }
+
+  constructor(
+    private user: UserService, 
+    private router: Router, 
+    private auth: AuthService,
+    private zone: NgZone,
+    private cloudinary: Cloudinary) { 
+      this.responses = [];
+    }
   
   ngOnInit() {
     this.userName = localStorage.getItem('username');
@@ -28,7 +44,65 @@ export class UpdateUserComponent implements OnInit {
       // this.currentUser = data
       // console.log(this.currentUser)
       this.bio = data.profile
+      this.pic = data.profilePic
     })
+
+    const uploaderOptions: FileUploaderOptions = {
+      url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      autoUpload: true,
+      isHTML5: true,
+      removeAfterUpload: true,
+      headers: [
+      {
+        name: 'X-Requested-With',
+        value: 'XMLHttpRequest'
+        } 
+
+      ]
+    };
+  
+    this.uploader = new FileUploader(uploaderOptions)
+
+    this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      form.append('upload_preset', this.cloudinary.config().upload_preset);
+      fileItem.withCredentials = false;
+      form.append('file', fileItem);
+      return { fileItem, form };
+    }
+
+    ;
+
+    const upsertResponse = fileItem => {
+      this.zone.run(() => {
+        const existingId = this.responses.reduce((prev, current, index) => {
+          if (current.file.name === fileItem.file.name && !current.status) {
+            return index;
+          }
+          return prev;
+        }, -1);
+        if(existingId > -1) {
+          this.responses[existingId] = Object.assign(this.responses[existingId], fileItem)
+        } else {
+          this.responses.push(fileItem.data.url);
+          console.log(this.responses);
+          this.pic = this.responses;
+          console.log(this.pic);
+        }
+      });
+    };
+
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+      upsertResponse(
+        {
+          file: item.file,
+          status,
+          data: JSON.parse(response)
+        }
+        );
+  }
+
+  fileOverBase(e: any): void {
+    this.hasDropOverZone = e;
   }
 
   onSubmit() {

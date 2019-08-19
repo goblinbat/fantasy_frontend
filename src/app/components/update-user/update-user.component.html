@@ -4,6 +4,10 @@
     <form>
         <input matInput value="{{userName}}" name="userName" [(ngModel)]="userName">
     </form>
+    <h2>Profile Picture</h2>
+    <form>
+        <input type="file" ng2FileSelect [uploader]="uploader" />
+    </form>
     <h2>Profile</h2>
     <form>
         <textarea matInput value="{{bio}}" name="bio" [(ngModel)]="bio"></textarea>    

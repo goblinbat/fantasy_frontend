@@ -31,7 +31,7 @@ export class modal implements OnInit {
   responses: Array<any>;
 
   private uploader: FileUploader;
-  private hasBaseDropZoneOver: boolean = false;
+  private hasDropZoneOver: boolean = false;
 
   plot:string;
   characters:string;
@@ -151,7 +151,7 @@ export class modal implements OnInit {
   }
 
   fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
+    this.hasDropZoneOver = e;
   }
   
 }
