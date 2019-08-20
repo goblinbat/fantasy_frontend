@@ -22,6 +22,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as Cloudinary from 'cloudinary-core';
+
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth.service';
@@ -49,6 +50,10 @@ const jwt = JwtModule.forRoot({
     blacklistedRoutes: [`${baseUrl}/auth`]
   }
 })
+
+export const cloudinaryLib = {
+  Cloudinary: Cloudinary
+};
 
 @NgModule({
   declarations: [
@@ -78,7 +83,7 @@ const jwt = JwtModule.forRoot({
     AppRoutingModule,
     FormsModule,
     FileUploadModule,
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
+    CloudinaryModule.forRoot(cloudinaryLib, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
