@@ -4,7 +4,6 @@ import { viewModal } from '../view-modal/view-modal.component';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import {MatButtonModule} from '@angular/material/button';
-import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({

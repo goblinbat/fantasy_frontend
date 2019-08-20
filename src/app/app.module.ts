@@ -22,7 +22,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as Cloudinary from 'cloudinary-core';
-
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth.service';
@@ -36,10 +35,20 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { viewModal } from './components/view-modal/view-modal.component';
 import { UpdateModalComponent } from './components/view-modal/update-modal/update-modal.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { baseUrl } from '../environments/environment.prod'
 
-const baseUrl = 'http://localhost:3000'
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
+const jwt = JwtModule.forRoot({
+  config: {
+    tokenGetter: tokenGetter,
+    whitelistedDomains: [baseUrl],
+    blacklistedRoutes: [`${baseUrl}/auth`]
+  }
+})
 
 @NgModule({
   declarations: [
@@ -52,7 +61,6 @@ const baseUrl = 'http://localhost:3000'
     modal,
     UpdateModalComponent,
     // AdminComponent,
-    // JwPaginationComponent
   ],
   entryComponents:[
     modal,
@@ -74,14 +82,7 @@ const baseUrl = 'http://localhost:3000'
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: function  tokenGetter() {
-             return     localStorage.getItem('access_token');},
-        whitelistedDomains: [baseUrl],
-        blacklistedRoutes: [`${baseUrl}/auth`]
-      }
-    }),
+    jwt,
     MatSidenavModule,
     MatMenuModule,
     MatDialogModule,

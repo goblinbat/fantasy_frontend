@@ -16,7 +16,7 @@ export class UpdateUserComponent implements OnInit {
   @Input()
   responses: Array<any>;
 
-  private uploader: FileUploader;
+  public uploader: FileUploader;
   private hasDropOverZone: boolean = false;
 
   @ViewChild('deleteModall', {static: true}) templateRef: TemplateRef<any>;
