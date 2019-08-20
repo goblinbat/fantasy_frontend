@@ -34,7 +34,7 @@ export class UpdateModalComponent implements OnInit {
     private posst: PostService,
     private _location: Location,
     private dialogRef: MatDialogRef<UpdateModalComponent>,
-    @Inject(MAT_DIALOG_DATA) private data,
+    @Inject(MAT_DIALOG_DATA) public data,
     private cloudinary: Cloudinary,
     private zone: NgZone 
     ) { this.responses = [] }
