@@ -20,11 +20,13 @@ import { ProfileModule } from './components/profile/profile.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
-import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import * as Cloudinary from 'cloudinary-core';
+import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
+import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
+
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthService } from './services/auth.service';
+import cloudinaryCongifuration from './config';
 import { ExploreComponent } from './components/explore/explore.component';
 import { SideBarComponent } from './components/navs/side-bar/side-bar.component';
 import { TopBarComponent } from './components/navs/top-bar/top-bar.component';
@@ -49,6 +51,12 @@ const jwt = JwtModule.forRoot({
     blacklistedRoutes: [`${baseUrl}/auth`]
   }
 })
+
+export const cloudinary = {
+  Cloudinary: CloudinaryCore
+};
+
+export const config: CloudinaryConfiguration = cloudinaryCongifuration;
 
 @NgModule({
   declarations: [
@@ -78,7 +86,7 @@ const jwt = JwtModule.forRoot({
     AppRoutingModule,
     FormsModule,
     FileUploadModule,
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'redbadgepatbrimol', upload_preset: 'unsigned'}),
+    CloudinaryModule.forRoot(cloudinary, config),
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
