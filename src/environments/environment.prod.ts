@@ -2,7 +2,11 @@ export const environment = {
   production: true
 };
 
+//* Deployed
 export let baseUrl = 'https://mhpbbd-fantasy-server.herokuapp.com';
+
+//* Local
+// export let baseUrl = 'http://localhost:3000';
 
 switch (window.location.hostname) {
   case 'localhost' || '127.0.0.1':

@@ -111,11 +111,19 @@ export class UpdateUserComponent implements OnInit {
   }
 
   onSubmit() {
-    let data={ user: {
-      username: this.userName,
-      profile: this.bio,
-      pic: this.pic
-    }}
+    let data
+    if (this.pic) {
+      data={ user: {
+        username: this.userName,
+        profile: this.bio,
+        pic: this.pic
+      }}
+    } else {
+      data={ user: {
+        username: this.userName,
+        profile: this.bio,
+      }}
+    }
     // console.log(data)
     localStorage.setItem('username', this.userName);
     this.user.editUser(this.userId, data).subscribe(res => {

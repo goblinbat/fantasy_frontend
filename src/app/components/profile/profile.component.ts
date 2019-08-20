@@ -23,7 +23,12 @@ export class ProfileComponent implements OnInit {
   page = 1;
   count = 5;
 
-  constructor(private user: UserService, private postServe: PostService, public dialog: MatDialog, private router: Router) { }
+  constructor(
+    private user: UserService, 
+    private postServe: PostService, 
+    public dialog: MatDialog, 
+    private router: Router
+  ) { }
 
   getPosts() {
     this.postServe.getPosts().subscribe(posts => {
@@ -53,6 +58,7 @@ export class ProfileComponent implements OnInit {
       // console.log(this.currentUser)
       this.bio = data.profile
       this.pPic = data.profilePic
+      this.pPic = this.pPic.slice(1, -1)
     })
     this.getPosts()
   }

@@ -1,6 +1,5 @@
 <div id="profile">
-    <!-- put profile pic here -->
-    <img *ngIf="pPic" src={{pPic}}>
+    <img *ngIf="pPic" src={{pPic}} id="profilePic" />
     <h1>{{userName}}</h1>
     <p *ngIf="bio else nobio">{{bio}}</p>
     <ng-template #nobio>No profile available</ng-template>

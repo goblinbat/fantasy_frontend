@@ -81,14 +81,14 @@ export class UpdateModalComponent implements OnInit {
   }
 
   updatePost() {
-    this.fixText();
+    // this.fixTe/xt();
     this.posst.updatePost(this.data.id, this.updatedPost).subscribe(res => console.log(res))
     location.reload();
   }
 
   ngOnInit() { 
     this.updatedPost = this.data
-    this.hold = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh').join('<br>')
+    // this.hold = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh').join('<br>')
     // console.log(this.updatedPost)
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,

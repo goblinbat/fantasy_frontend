@@ -1,9 +1,17 @@
 #textEditor{
-    margin-top:15%;
+    /* margin-top:15%; */
+    min-height: 100px;
+    min-width: 97%;
 }
-/* #mainForm{
-    background-color: '#ff2088';
-} */
+
+small {
+    margin: 1em;
+}
+
+#texter {
+    text-align: center;
+}
+
 .mat-checkbox{
     padding:5px;
 }
