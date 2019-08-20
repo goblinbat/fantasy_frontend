@@ -23,7 +23,7 @@ export class SideBarComponent implements OnInit {
 
   modalID:string;
   name:string = localStorage.getItem('username');
-  userId = localStorage.getItem('userId');
+  userId = Number(localStorage.getItem('userId'));
 
   width = window.innerWidth;
   opened: boolean
