@@ -2,7 +2,7 @@ export const environment = {
   production: true
 };
 
-export let baseUrl = '';
+let baseUrl = '';
 
 switch (window.location.hostname) {
   case 'localhost' || '127.0.0.1':
@@ -12,3 +12,5 @@ switch (window.location.hostname) {
       baseUrl = 'https://mhpbbd-fantasy-server.herokuapp.com/';
       break;
 }
+
+export default baseUrl
