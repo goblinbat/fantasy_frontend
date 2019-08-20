@@ -30,7 +30,7 @@ export class modal implements OnInit {
   @Input()
   responses: Array<any>;
 
-  private uploader: FileUploader;
+  public uploader: FileUploader;
   private hasDropZoneOver: boolean = false;
 
   plot:string;
@@ -43,7 +43,7 @@ export class modal implements OnInit {
   
   constructor(
     public dialogRef: MatDialogRef<modal>,
-    @Inject(MAT_DIALOG_DATA) public data: string,
+    @Inject(MAT_DIALOG_DATA) public data,
     private postService: PostService,
     private cloudinary: Cloudinary,
     private zone: NgZone 
@@ -89,7 +89,7 @@ export class modal implements OnInit {
     this.newPost.type = id;
     this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
     this.newPost.text = this.editedText;
-    this.postService.createPost(this.newPost).subscribe(res =>console.log(res));
+    this.postService.createPost(this.newPost).subscribe(res =>this.onNoClick());
     location.reload();
   }
 
