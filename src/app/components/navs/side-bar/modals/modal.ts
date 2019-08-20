@@ -85,16 +85,15 @@ export class modal implements OnInit {
     this.dialogRef.close();
   }
 
-  submit(id): void{
+  submit(id): void {
     this.newPost.type = id;
-    this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
-    this.newPost.text = this.editedText;
+    // this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
+    // this.newPost.text = this.editedText;
     this.postService.createPost(this.newPost).subscribe(res =>this.onNoClick());
     location.reload();
   }
 
   ngOnInit(): void {
-   
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
       autoUpload: true,
@@ -108,18 +107,13 @@ export class modal implements OnInit {
 
       ]
     };
-  
     this.uploader = new FileUploader(uploaderOptions)
-
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
       form.append('upload_preset', this.cloudinary.config().upload_preset);
       fileItem.withCredentials = false;
       form.append('file', fileItem);
       return { fileItem, form };
-    }
-
-    ;
-
+    };
     const upsertResponse = fileItem => {
       this.zone.run(() => {
         const existingId = this.responses.reduce((prev, current, index) => {
@@ -132,13 +126,12 @@ export class modal implements OnInit {
           this.responses[existingId] = Object.assign(this.responses[existingId], fileItem)
         } else {
           this.responses.push(fileItem.data.url);
-          console.log(this.responses);
+          // console.log(this.responses);
           this.newPost.image = this.responses;
-          console.log(this.newPost.image);
+          // console.log(this.newPost.image);
         }
       });
     };
-
     this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
       upsertResponse(
         {
@@ -147,7 +140,6 @@ export class modal implements OnInit {
           data: JSON.parse(response)
         }
         );
-
   }
 
   fileOverBase(e: any): void {

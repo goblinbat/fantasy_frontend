@@ -166,7 +166,10 @@
             </mat-expansion-panel>
         </mat-accordion>
         <br>
-        <textarea [(ngModel)]="updatedPost.text" [froalaEditor] id="textEditor" value="this.hold">{{hold}}</textarea>
+        <small>Type /enter/ to indicate a new line</small>
+        <div id="texter">
+            <textarea [(ngModel)]="updatedPost.text" id="textEditor" value="this.hold">{{hold}}</textarea>
+        </div>
         <br>
     </mat-dialog-content>
 

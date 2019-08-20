@@ -96,8 +96,8 @@ export const config: CloudinaryConfiguration = cloudinaryCongifuration;
     MatDialogModule,
     MatFormFieldModule,
     MatExpansionModule,
-    FroalaEditorModule.forRoot(), 
-    FroalaViewModule.forRoot(), 
+    // FroalaEditorModule.forRoot(), 
+    // FroalaViewModule.forRoot(), 
     MatCheckboxModule,
     NgxPaginationModule
   ],
