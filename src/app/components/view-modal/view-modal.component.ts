@@ -69,7 +69,7 @@ export class viewModal implements OnInit {
         this.comments = res
         this.comments = this.comments.reverse()
       });
-      this.dataText = this.data.text.split('hiowrehgoihq4huigrbeiubuph3q49024t89hwgiwh');
+      this.dataText = this.data.text.split('/enter/');
     });
   };
 
