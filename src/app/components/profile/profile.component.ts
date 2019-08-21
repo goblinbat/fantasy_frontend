@@ -58,7 +58,7 @@ export class ProfileComponent implements OnInit {
       // console.log(this.currentUser)
       this.bio = data.profile
       this.pPic = data.profilePic
-      // this.pPic = this.pPic.slice(1, -1)
+      // this.pPic = this.pPic.slice(1, -1)   // comment this back in when on localhost
     })
     this.getPosts()
   }
