@@ -116,7 +116,7 @@ export class UpdateUserComponent implements OnInit {
       data={ user: {
         username: this.userName,
         profile: this.bio,
-        pic: this.pic
+        profilePic: this.pic
       }}
     } else {
       data={ user: {
