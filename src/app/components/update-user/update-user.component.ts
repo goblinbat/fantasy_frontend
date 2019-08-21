@@ -73,9 +73,7 @@ export class UpdateUserComponent implements OnInit {
       fileItem.withCredentials = false;
       form.append('file', fileItem);
       return { fileItem, form };
-    }
-
-    ;
+    };
 
     const upsertResponse = fileItem => {
       this.zone.run(() => {
