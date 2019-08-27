@@ -89,8 +89,10 @@ export class modal implements OnInit {
     this.newPost.type = id;
     // this.editedText = this.newPost.text.substring(3,this.newPost.text.length-4)
     // this.newPost.text = this.editedText;
-    this.postService.createPost(this.newPost).subscribe(res =>this.onNoClick());
-    location.reload();
+    this.postService.createPost(this.newPost).subscribe(res =>{
+      this.onNoClick();
+      location.reload();
+    })
   }
 
   ngOnInit(): void {
